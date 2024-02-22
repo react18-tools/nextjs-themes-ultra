@@ -1,19 +1,19 @@
 {
-	"name": "@mayank1513/fork-me",
+	"name": "nthul",
 	"author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
 	"private": false,
-	"version": "2.0.1",
+	"version": "0.0.0",
 	"description": "An intuitive React.js fork me ribbon component for promoting open source project forks.",
 	"main": "./index.ts",
 	"types": "./index.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/react18-tools/turborepo-template.git"
+		"url": "git+https://github.com/mayank1513/nthul.git"
 	},
 	"bugs": {
-		"url": "https://github.com/react18-tools/turborepo-template/issues"
+		"url": "https://github.com/mayank1513/nthul/issues"
 	},
-	"homepage": "https://github.com/react18-tools/turborepo-template/tree/main/lib/fork-me#readme",
+	"homepage": "https://github.com/mayank1513/nthul/tree/main/lib/fork-me#readme",
 	"sideEffects": false,
 	"license": "MIT",
 	"scripts": {
