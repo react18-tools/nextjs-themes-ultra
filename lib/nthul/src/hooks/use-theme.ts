@@ -1,4 +1,5 @@
 import useRGS from "r18gs";
+import { DEFAULT_ID } from "../constants";
 
 export type ColorSchemePreference = "system" | "dark" | "light";
 
@@ -8,9 +9,7 @@ export interface ThemeState {
 	theme: string;
 }
 
-export const DEFAULT_ID = "nthul";
-
-export const DEFAULT_THEME_STATE = {
+const DEFAULT_THEME_STATE = {
 	colorSchemePreference: "system" as ColorSchemePreference,
 	systemColorScheme: "light" as "light" | "dark",
 	theme: "",

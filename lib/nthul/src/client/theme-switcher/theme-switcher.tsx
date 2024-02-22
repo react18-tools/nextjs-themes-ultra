@@ -2,7 +2,7 @@ import useRGS from "r18gs";
 import type { SetStateAction } from "r18gs/use-rgs";
 import * as React from "react";
 import type { ColorSchemePreference, ThemeState } from "../../hooks/use-theme";
-import { DEFAULT_ID } from "../../hooks/use-theme";
+import { DEFAULT_ID } from "../../constants";
 
 export interface ThemeSwitcherProps {
 	/** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
