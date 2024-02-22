@@ -27,17 +27,17 @@ function useMediaQuery(setThemeState: SetStateAction<ThemeState>) {
 	}, [setThemeState]);
 }
 
-interface LoadSyncedStateProps extends ThemeSwitcherProps {
+export interface LoadSyncedStateProps extends ThemeSwitcherProps {
 	setThemeState: SetStateAction<ThemeState>;
 }
 
-function parseState(str?: string | null) {
-	const [theme, colorSchemePreference, systemColorScheme] = (str ?? ",system,light").split(",") as [
+function parseState(str?: string | null): ThemeState {
+	const parts = (str ?? ",system,light").split(",") as [
 		string,
 		ColorSchemePreference,
 		"light" | "dark",
 	];
-	return { theme, colorSchemePreference, systemColorScheme };
+	return { theme: parts[0], colorSchemePreference: parts[1], systemColorScheme: parts[2] };
 }
 
 function useLoadSyncedState({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) {
@@ -76,7 +76,7 @@ function modifyTransition(themeTransition = "none") {
 	};
 }
 
-interface UpdateDOMProps {
+export interface UpdateDOMProps {
 	targetId?: string;
 	themeState: ThemeState;
 }
@@ -113,6 +113,7 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwit
 
 	useLoadSyncedState({ dontSync, targetId, setThemeState });
 
+	/** update DOM and storage */
 	React.useEffect(() => {
 		const restoreTransitions = modifyTransition(themeTransition);
 		const shoulCreateCookie = updateDOM({ targetId, themeState });
