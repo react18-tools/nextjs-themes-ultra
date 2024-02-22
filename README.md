@@ -1,4 +1,4 @@
-# nthul
+# Nextjs-Themes-Ultralight
 
 [![test](https://github.com/mayank1513/nthul/actions/workflows/test.yml/badge.svg)](https://github.com/mayank1513/nthul/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/aa896ec14c570f3bb274/maintainability)](https://codeclimate.com/github/mayank1513/nthul/maintainability) [![codecov](https://codecov.io/gh/mayank1513/nthul/graph/badge.svg)](https://codecov.io/gh/mayank1513/nthul) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 
@@ -64,35 +64,9 @@ or
 $ yarn add nthul
 ```
 
-
-
-
-## Getting started:
-
-Click on the `"Use this template"` button to customize it for your next JavaScript/TypeScript/React/Vue/Next.js library or project.
-
-## What's Different?
-
-Compared to the default scaffold from create-turbo, this template offers:
-
-- Unit tests with `vitest`
-- Build setup with `tsup` and `esbuild-react18-useclient` Supports React Server components out of the box
-- **Automatic file generation**
-  - just run `yarn turbo gen` and follow the prompts to auto generate your new component with test file and dependency linking
-  - follow best practices automatically
-- GitHub actions/workflows to auto publish your package when version changes
-- GitHub action/workflow + preinstall scripts to automatically rebrand your repo on creation
-
 ## Step by Step Instructions and Checklist
 
-- [ ] Star [this repo](https://github.com/mayank1513/nthul/) so that you and others can find it more easily for your next projects. It also helps me understand that people are using this repo so that I can maintain the repo and the documentation well.
-
-- [ ] Install and setup Node.js and IDE (I prefer VSCode)
-- [ ] Install the recommended VSCode extensions - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Trello Kanban](https://marketplace.visualstudio.com/items?itemName=mayank1513.trello-kanban-task-board)
 - [ ] Install dependencies using `pnpm`
-  - [ ] If you don't have `pnpm` installed, run `npm i -g pnpm` to install `pnpm` -> run `pnpm setup` to set up `pnpm` for global installations
-  - [ ] Run `pnpm i` to install dependencies and `preinstall` script will automatically touch up workflows and create a commit
-  - [ ] Run `pnpm i -g turbo` to install `turbo` globally (Sometime due to `TypeScript` and `Plop` version conflicts code generation requires global `turbo`).
   - [ ] Run `turbo gen react-component`, and follow prompts to generate server or client components for your library
     - [ ] Use `snake-case` for your component name - it will be automatically converted to `PascalCase`
     - [ ] Your component and test files will be created in `**/src/client/` or `**/src/server/` directory depending on whether you choose `client` or `server` component
