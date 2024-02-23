@@ -1,5 +1,5 @@
 import useRGS from "r18gs";
-import type { SetStateAction } from "r18gs/use-rgs";
+import type { SetStateAction } from "r18gs";
 import * as React from "react";
 import type { ColorSchemePreference, ThemeState } from "../../constants";
 import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../../constants";
