@@ -55,12 +55,15 @@ function useLoadSyncedState({ dontSync, targetId, setThemeState }: LoadSyncedSta
   }, [dontSync, setThemeState, targetId]);
 }
 
-function modifyTransition(themeTransition = "none") {
+function modifyTransition(themeTransition = "none", targetId?: string) {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
   const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
+  const targetSelector = targetId ? `#${targetId},#${targetId} *,#${targetId} ~ *,#${targetId} ~ * *` : "*";
   css.appendChild(
-    document.createTextNode(`*{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`),
+    document.createTextNode(
+      `${targetSelector}{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`,
+    ),
   );
   document.head.appendChild(css);
 
@@ -105,6 +108,10 @@ function updateDOM({ targetId, themeState, dontSync }: UpdateDOMProps) {
   if (shoulCreateCookie) document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
 }
 
+/**
+ * The core ThemeSwitcher component wich applies classes and transitions.
+ * Cookies are set only if corresponding ServerTarget is detected.
+ */
 export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwitcherProps) {
   if (targetId === "") throw new Error("id can not be an empty string");
   const [themeState, setThemeState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
@@ -115,7 +122,7 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwit
 
   /** update DOM and storage */
   React.useEffect(() => {
-    const restoreTransitions = modifyTransition(themeTransition);
+    const restoreTransitions = modifyTransition(themeTransition, targetId);
     updateDOM({ targetId, themeState, dontSync });
     if (!dontSync && tInit < Date.now() - 300) {
       // save to localStorage
