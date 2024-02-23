@@ -3,17 +3,17 @@
   "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
   "private": false,
   "version": "0.0.0",
-  "description": "An intuitive React.js fork me ribbon component for promoting open source project forks.",
+  "description": "Unleash the Power of React Server Components! Use multiple themes on your site with confidence, without losing any advantages of React Server Components.",
   "main": "./index.ts",
   "types": "./index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react18-tools/nthul.git"
+    "url": "git+https://github.com/react18-tools/nextjs-themes-ultralight.git"
   },
   "bugs": {
-    "url": "https://github.com/react18-tools/nthul/issues"
+    "url": "https://github.com/react18-tools/nextjs-themes-ultralight/issues"
   },
-  "homepage": "https://github.com/react18-tools/nthul/tree/main/lib/fork-me#readme",
+  "homepage": "https://github.com/react18-tools/nextjs-themes-ultralight/tree/main/lib/fork-me#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
@@ -26,8 +26,8 @@
   "devDependencies": {
     "@testing-library/react": "^14.2.1",
     "@turbo/gen": "^1.12.4",
-    "@types/node": "^20.11.19",
-    "@types/react": "^18.2.57",
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.3.1",
@@ -59,20 +59,33 @@
     "url": "https://github.com/sponsors/mayank1513"
   },
   "keywords": [
-    "fork-me",
-    "GitHub",
     "nextjs",
     "nextjs13",
+    "nextjs14",
+    "nextjs-themes",
+    "nextjs-themes-ultralight",
+    "nextjs13-themes",
+    "nextjs14-themes",
+    "tailwind",
+    "tailwindcss",
+    "tailwindcss-support",
     "react",
     "react18",
+    "react18-tools",
+    "react-themes",
+    "react18-themes",
     "react-server-components",
     "react-client-components",
+    "themes",
+    "dark-mode",
+    "dark-theme",
+    "dark-themes",
     "typescript",
     "javascript",
     "mayank1513",
     "turborepo-trmplate"
   ],
   "dependencies": {
-    "r18gs": "^0.0.2"
+    "r18gs": "^0.0.3"
   }
 }
