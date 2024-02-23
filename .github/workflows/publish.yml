@@ -34,7 +34,7 @@ jobs:
       - name: Test
         run: pnpm test
       - name: Create release and publish to NPM
-        run: pnpm build && pnpm publish-package
+        run: pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
         # continue on error to publish scoped package name <- by default repo is setup for a non-scoped + scoped package name
         continue-on-error: true
         env:
@@ -43,16 +43,10 @@ jobs:
           OWNER: ${{ github.event.repository.owner.login }}
           REPO: ${{ github.event.repository.name }}
 
-      - name: Publish Scoped package to NPM
-        # continue on error - expecing npm to trow error if scoping is done twice
-        continue-on-error: true
-        id: publish_scoped
-        run: cd dist && node ../scope.js && npm publish --provenance --access public
+      # Publish lite version
+      - run: node lite.js && pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER: ${{ github.event.repository.owner.login }}
-          REPO: ${{ github.event.repository.name }}
 
       - name: Publish package with long name for better SEO
         continue-on-error: true

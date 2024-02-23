@@ -72,6 +72,26 @@ or
 $ yarn add nthul
 ```
 
+## Want Lite Version? [![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul-lite)](https://www.npmjs.com/package/nthul-lite) [![Version](https://img.shields.io/npm/v/nthul-lite.svg?colorB=green)](https://www.npmjs.com/package/nthul-lite) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul-lite.svg)](https://www.npmjs.com/package/nthul-lite)
+
+```bash
+$ pnpm add nthul-lite
+```
+
+**or**
+
+```bash
+$ npm install nthul-lite
+```
+
+**or**
+
+```bash
+$ yarn add nthul-lite
+```
+
+> You need r18gs as a peer-dependency
+
 ## Usage
 
 > Please explore `examples` and `packages/shared-ui` for working examples. (updates coming soon...)
@@ -397,7 +417,7 @@ cd nthul
 pnpm dev
 ```
 
-### 🤩 Don't forger to start [this repo](https://github.com/react18-tools/nthul)!
+### 🤩 Don't forger to start [this repo](https://github.com/react18-tools/nextjs-themes-ultralight)!
 
 Want hands-on course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://mayank-chaudhari.vercel.app/courses/react-and-next-js-with-typescript) and [The Game of Chess with Next.js, React and TypeScrypt](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
 
