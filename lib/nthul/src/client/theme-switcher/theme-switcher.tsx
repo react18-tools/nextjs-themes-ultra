@@ -32,18 +32,21 @@ export interface LoadSyncedStateProps extends ThemeSwitcherProps {
   setThemeState: SetStateAction<ThemeState>;
 }
 
-function parseState(str?: string | null): ThemeState {
-  const parts = (str ?? ",system,light").split(",") as [string, ColorSchemePreference, "light" | "dark"];
-  return { theme: parts[0], colorSchemePreference: parts[1], systemColorScheme: parts[2] };
+function parseState(str?: string | null) {
+  const parts = (str ?? ",system").split(",") as [string, ColorSchemePreference];
+  return { theme: parts[0], colorSchemePreference: parts[1] };
 }
+
+let tInit = 0;
 
 function useLoadSyncedState({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) {
   React.useEffect(() => {
     if (dontSync) return;
+    tInit = Date.now();
     const key = targetId ?? DEFAULT_ID;
-    setThemeState(parseState(localStorage.getItem(key)));
+    setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
     const storageListener = (e: StorageEvent) => {
-      if (e.key === key) setThemeState(parseState(e.newValue));
+      if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
     window.addEventListener("storage", storageListener);
     return () => {
@@ -114,10 +117,10 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwit
   React.useEffect(() => {
     const restoreTransitions = modifyTransition(themeTransition);
     updateDOM({ targetId, themeState, dontSync });
-    if (!dontSync) {
+    if (!dontSync && tInit < Date.now() - 300) {
       // save to localStorage
-      const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
-      const stateToSave = [theme, csp, scs].join(",");
+      const { theme, colorSchemePreference } = themeState;
+      const stateToSave = [theme, colorSchemePreference].join(",");
       const key = targetId ?? DEFAULT_ID;
       localStorage.setItem(key, stateToSave);
     }
