@@ -25,6 +25,11 @@
       "id": "-FlzW8htLo-6jz5-ZqjEx",
       "description": "update examples to showcase edge cases",
       "columnId": "column-todo"
+    },
+    "5fLtFF1sHPxsPjq-wWOxv": {
+      "id": "5fLtFF1sHPxsPjq-wWOxv",
+      "description": "Fix turbo-repo template bug - replacing only first doc link in readme --- look at the [doc] with [TypeDoc]",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -34,7 +39,8 @@
       "tasksIds": [
         "RtA7NBfPOlfnVHqk54rMD",
         "fqhes_YS14GQopOUs7K-7",
-        "-FlzW8htLo-6jz5-ZqjEx"
+        "-FlzW8htLo-6jz5-ZqjEx",
+        "5fLtFF1sHPxsPjq-wWOxv"
       ]
     },
     {
