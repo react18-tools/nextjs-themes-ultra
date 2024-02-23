@@ -1,4 +1,4 @@
-import { ColorSwitch } from "nextjs-themes";
+import { ColorSwitch } from "nthul";
 import { Logo } from "../common/logo";
 import styles from "../root-layout.module.css";
 
