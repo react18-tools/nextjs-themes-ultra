@@ -2,6 +2,7 @@ import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/re
 import { afterEach, beforeEach, describe, test } from "vitest";
 import { useTheme } from "../../hooks/use-theme";
 import { DEFAULT_ID } from "../../constants";
+import { ServerTarget } from "../../server";
 import { ThemeSwitcher } from "./theme-switcher";
 
 describe("theme-switcher", () => {
@@ -52,7 +53,7 @@ describe("theme-switcher", () => {
   test.todo("test media change event -- not supported by fireEvent");
 });
 
-describe("test theme-switcher with props", () => {
+describe("test theme-switcher with props and server target", () => {
   afterEach(cleanup);
 
   test("test dontSync", async ({ expect }) => {
@@ -71,5 +72,25 @@ describe("test theme-switcher with props", () => {
 
   test.todo("test invalid targetId", ({ expect }) => {
     expect(render(<ThemeSwitcher targetId="" />)).toThrow("id can not be an empty string");
+  });
+
+  test("test with confined server target", ({ expect }) => {
+    const THEME = "my-theme-with-server";
+    const COLOR_SCHEME = "dark";
+    const targetId = "my-custom-target";
+    globalThis.cookies = {
+      [targetId]: {
+        value: `${THEME},${COLOR_SCHEME}`,
+      },
+    };
+    render(<ServerTarget targetId={targetId} />);
+    render(<ThemeSwitcher targetId={targetId} />);
+    const { result } = renderHook(() => useTheme(targetId));
+    const NEW_THEME = "new-theme";
+    act(() => {
+      result.current.setTheme(NEW_THEME);
+    });
+    expect(document.cookie).not.toContain(THEME);
+    expect(document.cookie).toContain(NEW_THEME);
   });
 });
