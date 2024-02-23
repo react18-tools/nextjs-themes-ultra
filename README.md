@@ -137,6 +137,14 @@ export default function Layout({ children }) {
 
 ⚡🎉 Woohoo! You just added multiple theme and color-scheme modes and you can also use Server Component! Isn't that awesome?
 
+### ColorSwitch
+
+An elegant color-switch to toggle coloe-schemes ("dark" | "light" | "system").
+
+```tsx
+<ColorSwitch />
+```
+
 ### HTML & CSS
 
 That's it, your Next.js app fully supports dark mode, including System preference with `prefers-color-scheme`. The theme is also immediately synced between tabs. By default, `nextjs-themes-ultralight` modifies the className on the `html` element, which you can easily use to style your app:
@@ -153,14 +161,14 @@ That's it, your Next.js app fully supports dark mode, including System preferenc
   --foreground: white;
 }
 
-// for custom themes
+/* for custom themes */
 
 .th-theme1 {
   --background: red;
   --foreground: yellow;
 }
 
-// for custom theme with dark and light variants 
+/* for custom theme with dark and light variants */
 
 .dark.th-theme2 {
   --background: blue;
@@ -224,10 +232,10 @@ import Image from "next/image";
 import { useTheme } from "nthul/hooks";
 
 function ThemedImage() {
-  const { theme, resolvedColorScheme } = useTheme();
+  const { resolvedColorScheme } = useTheme();
   let src;
 
-  switch (resolvedTheme) {
+  switch (resolvedColorScheme) {
     case "light":
       src = "/light.png";
       break;
