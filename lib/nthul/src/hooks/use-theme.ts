@@ -1,19 +1,6 @@
 import useRGS from "r18gs";
-import { DEFAULT_ID } from "../constants";
-
-export type ColorSchemePreference = "system" | "dark" | "light";
-
-export interface ThemeState {
-  colorSchemePreference: ColorSchemePreference;
-  systemColorScheme: "dark" | "light";
-  theme: string;
-}
-
-const DEFAULT_THEME_STATE = {
-  colorSchemePreference: "system" as ColorSchemePreference,
-  systemColorScheme: "light" as "light" | "dark",
-  theme: "",
-};
+import type { ColorSchemePreference, ThemeState } from "../constants";
+import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../constants";
 
 export interface UseTheme {
   theme: string;

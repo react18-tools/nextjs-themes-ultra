@@ -1,8 +1,8 @@
 import useRGS from "r18gs";
 import type { SetStateAction } from "r18gs/use-rgs";
 import * as React from "react";
-import type { ColorSchemePreference, ThemeState } from "../../hooks/use-theme";
-import { DEFAULT_ID } from "../../constants";
+import type { ColorSchemePreference, ThemeState } from "../../constants";
+import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../../constants";
 
 export interface ThemeSwitcherProps {
   /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
@@ -20,6 +20,7 @@ function useMediaQuery(setThemeState: SetStateAction<ThemeState>) {
     const updateSystemColorScheme = () => {
       setThemeState(state => ({ ...state, systemColorScheme: media.matches ? "dark" : "light" }));
     };
+    updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
     return () => {
       media.removeEventListener("change", updateSystemColorScheme);
@@ -103,7 +104,7 @@ function updateDOM({ targetId, themeState, dontSync }: UpdateDOMProps) {
 
 export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwitcherProps) {
   if (targetId === "") throw new Error("id can not be an empty string");
-  const [themeState, setThemeState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID);
+  const [themeState, setThemeState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
 
   useMediaQuery(setThemeState);
 
