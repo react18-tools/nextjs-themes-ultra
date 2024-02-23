@@ -3,16 +3,26 @@ import { cookies } from "next/headers";
 import { DEFAULT_ID } from "../../constants";
 
 interface ServerTargetProps {
+  /** @defaultValue 'div' */
   tag?: keyof JSX.IntrinsicElements;
+  /** id of target element if you are applying theme only to specific container.
+   * make sure you pass same targetId to corresponding `ThemeSwitcher`, `ColorSwitch` and `useTheme` hook as well.
+   * @defaultValue undefined*/
   targetId?: string;
 }
 
 /**
- * # ServerTarget
- * --todo
- * update comments
- * create colorswitch
- * update examples
+ * Server Side target for avoiding flash of un-themed content.
+ * @example
+ * ```tsx
+ * <html>
+ *   ...
+ *   <body>
+ *     <ServerTarget />
+ *     ...
+ *   </body>
+ * </html>
+ * ```
  */
 export function ServerTarget({ tag, targetId }: ServerTargetProps) {
   const key = targetId || DEFAULT_ID;

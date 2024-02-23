@@ -1,6 +1,6 @@
 import { act, cleanup, fireEvent, render, renderHook } from "@testing-library/react";
 import { afterEach, beforeEach, describe, test } from "vitest";
-import { useTheme } from "../../hooks/use-theme";
+import { useTheme } from "../../hooks";
 import { DEFAULT_ID } from "../../constants";
 import { ServerTarget } from "../../server";
 import { ThemeSwitcher } from "./theme-switcher";

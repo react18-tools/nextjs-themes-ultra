@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useTheme } from "../../hooks/use-theme";
+import { useTheme } from "../../hooks";
 
 export interface ColorSwitchProps {
-  /** id of target element if you are applying theme only to specific container. */
+  /** id of target element if you are applying theme only to specific container. Should be same as corresponding ThemeSwitcher, etc. */
   targetId?: string;
   /** Diameter of the color switch */
   size?: number;
@@ -11,7 +11,8 @@ export interface ColorSwitchProps {
 }
 
 /**
- * Color switch button to quickly set user preference
+ * Color switch button to quickly set user preference.
+ * Use same targetId for corresponding components and hooks if you are using themes for specific container only.
  *
  * @example
  * ```ts

@@ -1,6 +1,6 @@
 import { act, cleanup, fireEvent, render, renderHook, screen } from "@testing-library/react";
 import { afterEach, describe, test } from "vitest";
-import { useTheme } from "../../hooks/use-theme";
+import { useTheme } from "../../hooks";
 import { ColorSwitch } from "./color-switch";
 
 describe("color-switch", () => {
