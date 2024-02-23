@@ -1,52 +1,60 @@
 # Nextjs-Themes-Ultralight
 
-[![test](https://github.com/react18-tools/nthul/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nthul/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/aa896ec14c570f3bb274/maintainability)](https://codeclimate.com/github/react18-tools/nthul/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nthul/graph/badge.svg)](https://codecov.io/gh/react18-tools/nthul) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![test](https://github.com/react18-tools/nextjs-themes-ultralight/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nthul/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/85f6447e649201924a2c/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes-ultralight/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-themes-ultralight/graph/badge.svg)](https://codecov.io/gh/react18-tools/nextjs-themes-ultralight) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+
+🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
+
+> A canonical package with a longer and more descriptive name is also published - `nextjs-themes-ultralight`
+
+## Motivation
+
+I created `nextjs-themes` library to achieve functionality like `next-themes` with React Server Components. It worked well, however, I noticed issues with tree-shaking and also found that some functions that are rarely used can be removed or replaced to improve overall performance and readability.
+
+I will update the main library [`nextjs-themes`](https://github.com/react18-tools/nextjs-themes). However, it requires ensuring minimal changes to the existing APIs. And thus I created a new library, which has the potential to be a better alternative in most cases.
 
 ## Features
 
-This template offers following pre-configured features. Additionally, your repo will automatically be rebranded with help of workflow and post install scripts.
+✅ Perfect dark mode in 2 lines of code
 
-✅ Monorepo powered by turbo repo to build, test and deploy your library
+✅ Works with Tailwind CSS
 
-✅ Next.js, Vite and Remix examples to demonstrate how your library can be used (Feel free to remove Remix as it is still unstable when it comes to monorepo setup and importing from folders)
+✅ Fully Treeshakable (`import from nthul/client/theme-switcher`)
 
-✅ Examples pre-configured to use Light/Dark theme according to user preference
-
-✅ The examples provided are ready to be deployed to Vercel
-
-✅ Typedoc setup to automatically create documentation for your library based on tsdoc comments
-
-✅ Code of Conduct and contributing files that you can always update
-
-✅ Prettier and linter configured as per the modern best practices (Feel free to add your flavour)
-
-✅ Recommended VSCode extensions - Prettier and [Kanban board](https://github.com/mayank1513/vscode-extension-trello-kanban-board) to auto-format your code and manage your project priorities right within your IDE
-
-✅ Powerful code generators - try yarn turbo gen
-
-✅ Test setup with Vitest - A modern and fast testing framework supporting Jest like APIs
-
-✅ Workflows to automate running tests on every pull-request or code push events
-
-✅ Workflow to automatically publish and create a GitHub release when you update your librari's `package.json` file.
-
-✅ Workflow to automatically rebrand entire template based on the name of the repo you create from this template. (As soon as you create a repo from this template, setup workflow is triggered which renames nthul to your repo name and does lots of other fixes to set you up and running.)
-
-✅ With all these features, this readme file contains a quick checklist for you to configure Codecov and other badges, setup your docs website on GitHub pages, etc. See [Checklist](https://github.com/react18-tools/nthul/#checklist).
-
-#### Create a library that is
-
-✅ Fully Treeshakable (import from nthul/client/component)
+✅ Designed for excellence
 
 ✅ Full TypeScript Support
 
 ✅ Unleash the full power of React18 Server components
 
+✅ System setting with prefers-color-scheme
+
+✅ Themed browser UI with color-scheme
+
+✅ Support for Next.js 13 & Next.js 14 `appDir`
+
+✅ No flash on load (for all - SSG, SSR, ISG, Server Components)
+
+✅ Sync theme across tabs and windows - can opt-out by passing dontSync to ThemeSwitcher
+
+✅ Apply custom transition when changing themes
+
+✅ Force pages to specific themes - requires assigning className (detailed techniques comming soon...)
+
+✅ Manipulate theme via `useTheme` hook
+
+✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes-ultralight) ([Docs](https://react18-tools.github.io/nextjs-themes-ultralight))
+
+✅ Use combinations of `th-` and `dark` or `light` classes for dark/light variants of themes
+
+✅ Automatically avoids storing cookies when not using the corresponding `ServerTarget`
+
 ✅ Works with all build systems/tools/frameworks for React18
 
-✅ Doccumented with [Typedoc](https://react18-tools.github.io/nthul) ([Docs](https://react18-tools.github.io/nthul))
+> Feel free to [request](https://github.com/react18-tools/nextjs-themes-ultralight/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) or [discuss](https://github.com/react18-tools/nextjs-themes-ultralight/discussions) new features or [report bugs](https://github.com/react18-tools/nextjs-themes-ultralight/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
 
 ## Install
+
+> A canonical package with a longer and more descriptive name is also published - `nextjs-themes-ultralight`
 
 ```bash
 $ pnpm add nthul
@@ -64,32 +72,280 @@ or
 $ yarn add nthul
 ```
 
-## Step by Step Instructions and Checklist
+## Usage
 
-- [ ] Install dependencies using `pnpm`
-  - [ ] Run `turbo gen react-component`, and follow prompts to generate server or client components for your library
-    - [ ] Use `snake-case` for your component name - it will be automatically converted to `PascalCase`
-    - [ ] Your component and test files will be created in `**/src/client/` or `**/src/server/` directory depending on whether you choose `client` or `server` component
-- [ ] Set up `CodeCov`
-  - [ ] Visit codecov and setup your repo
-  - [ ] Create repository secrets for `CODECOV_TOKEN`
-- [ ] Set up `CodeClimate`
-  - [ ] Visit CodeClimate and setup your repo
-  - [ ] Create repository secrets for `CC_TEST_REPORTER_ID`
-  - [ ] add `*.test.*` to ignore patterns on the website
-  - [ ] update code climate badge
-- [ ] Add `NPM_AUTH_TOKEN` to repository secrets to automate publishing package
-  - [ ] login to your `npm` account and create automation token
-  - [ ] Create a new repository secrets `NPM_AUTH_TOKEN`
-- [ ] Update description in `lib/nthul/package.json`
-- [ ] Update Repo Stats by visiting and setting up [repobeats](https://repobeats.axiom.co/)
-- [ ] Create your library and update examples
-- [ ] Update README
-- [ ] Setup GitHub pages to deploy docs
-  - [ ] Go to [repo settings](https://github.com/react18-tools/nthul/settings/pages) -> pages (On left panel); Select deploy from a branch; Then Select `main` and `/docs`
-- [ ] Push your changes/Create PR and see your library being automatically tested and published
-- [ ] Optionally deploy your example(s) to Vercel.
-- [ ] You are most welcome to star this template, contribute, and/or sponsor the `terbo-repo-template` project or my other open-source work
+> Please explore `examples` and `packages/shared-ui` for working examples. (updates coming soon...)
+
+### SPA (e.g., Vite, CRA) and Next.js pages directory (No server components)
+
+The best way is to add a [Custom `App`](https://nextjs.org/docs/advanced-features/custom-app) to use by modifying `_app` as follows:
+
+Adding dark mode support takes 2 lines of code:
+
+```js
+import { ThemeSwitcher, ColorSwitch } from "nthul/client"; // for better tree-shaking
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <ThemeSwitcher />
+      {/* to add a switch */}
+      <header>
+        <ColorSwitch />
+      </header>
+      <Component {...pageProps} />
+    </>
+  );
+}
+
+export default MyApp;
+```
+
+⚡🎉Boom! Just a couple of lines and your dark mode is ready! That too with an awesome color switch for user preferred settings.
+
+Check out examples for advanced usage.
+
+> For `vite` or any other build tool you can find a similar root component. E.g., <App /> component in `CRA` and `vite`.
+
+### With Next.js `app` router (Server Components)
+
+> If your app is mostly serving static content, you do not want the overhead of SSR.
+>
+> When using this approach, you need to use CSS general sibling Combinator (~) to make sure your themed CSS is properly applied. See (HTML & CSS)[#html--css].
+
+Update your `app/layout.jsx` to add `ThemeSwitcher`, and `ServerTarget`. `ServerTarget` is required to avoid a flash of un-themed content on reload.
+
+```tsx
+// app/layout.jsx
+import { ThemeSwitcher } from "nthul/client/theme-switcher"; // for better tree-shaking
+import { ServerTarget } from "nthul/server/nextjs";
+
+export default function Layout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        /** use ServerTarget as first element inside body */
+        <ServerTarget />
+        <ThemeSwitcher />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+⚡🎉 Woohoo! You just added multiple theme and color-scheme modes and you can also use Server Component! Isn't that awesome?
+
+### HTML & CSS
+
+That's it, your Next.js app fully supports dark mode, including System preference with `prefers-color-scheme`. The theme is also immediately synced between tabs. By default, `nextjs-themes-ultralight` modifies the className on the `html` element, which you can easily use to style your app:
+
+```css
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+}
+
+.dark {
+  --background: black;
+  --foreground: white;
+}
+
+// for custom themes
+
+.th-theme1 {
+  --background: red;
+  --foreground: yellow;
+}
+
+// for custom theme with dark and light variants 
+
+.dark.th-theme2 {
+  --background: blue;
+  --foreground: white;
+}
+
+.light.th-theme2 {
+  --background: white;
+  --foreground: blue;
+}
+```
+
+#### When using `ServerTarget`
+
+when using `ServerTarget`, you need to use CSS general sibling Combinator (~) as `ServerTarget` is not wrapping your app.
+
+> Replace `.selector` with a combination of selectors from the description above.
+
+```css
+/*
+for the target element itself, e.g., the html tag.
+in most cases, this is inherited by all child elements.
+*/
+.selector,
+
+/* for forcing to the child elements. */
+.selector *,
+
+/* when using ServerTarget */
+
+.selector ~ *, // for all following siblings
+
+.selector ~ * * // for all the children of the following siblings
+{
+  // ...your styles
+}
+
+```
+
+Please note that we have not added a comma (',') after the last selector.
+
+Without comments, it should look like following.
+
+```css
+.selector,
+.selector *,
+.selector ~ *,
+.selector ~ * * {
+  --th-variable: value;
+}
+```
+
+We encourage you to use this pattern for defining your theme variables in CSS to avoid any unwanted overrides.
+
+## Images
+
+You can also show different images based on the current theme.
+
+```jsx
+import Image from "next/image";
+import { useTheme } from "nthul/hooks";
+
+function ThemedImage() {
+  const { theme, resolvedColorScheme } = useTheme();
+  let src;
+
+  switch (resolvedTheme) {
+    case "light":
+      src = "/light.png";
+      break;
+    case "dark":
+      src = "/dark.png";
+      break;
+    default:
+      src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+      break;
+  }
+
+  return <Image src={src} width={400} height={400} />;
+}
+
+export default ThemedImage;
+```
+
+### useTheme
+
+In case your components need to know the current theme and be able to change it. The `useTheme` hook provides theme information:
+
+```js
+import { useTheme } from "nthul";
+
+const ThemeChanger = () => {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme("light")}>Light Mode</button>
+      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+    </div>
+  );
+};
+```
+
+`useTheme` hook will return following object.
+
+```ts
+interface UseTheme {
+  theme: string;
+  colorSchemePreference: "dark" | "light" | "system";
+  systemColorScheme: "dark" | "light";
+  resolvedColorScheme: "dark" | "light";
+  setColorSchemePreference: (colorSchemePreference: ColorSchemePreference) => void;
+  setTheme: (theme: string) => void;
+}
+```
+
+## Force per page theme and color-scheme
+
+We have not added any components or hooks for forcing `theme` and `color-scheme` per page or per element basis. As this is a rarely used scenario. However, you can acheive this by applying appropreate calssNames.
+
+```tsx
+// force a theme for the page
+export default function Page() {
+  return <div className="dark th-theme1">...</div>;
+}
+```
+
+> We are open to listening your feedback - [Discussions](https://github.com/react18-tools/nextjs-themes-ultralight/discussions)
+
+### With Styled Components and any CSS-in-JS
+
+Next Themes is completely CSS independent, it will work with any library. For example, with Styled Components you just need to `createGlobalStyle` in your custom App:
+
+```js
+// pages/_app.js
+import { createGlobalStyle } from "styled-components";
+import { ThemeSwitcher } from "nthul";
+
+// Your themeing variables
+const GlobalStyle = createGlobalStyle`
+  :root {
+    --fg: #000;
+    --bg: #fff;
+  }
+
+  [data-theme="dark"] {
+    --fg: #fff;
+    --bg: #000;
+  }
+`;
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <GlobalStyle />
+      <ThemeSwitcher />
+      <Component {...pageProps} />
+    </>
+  );
+}
+```
+
+### With Tailwind
+
+In your `tailwind.config.js`, set the dark mode property to class:
+
+```js
+// tailwind.config.js
+module.exports = {
+  darkMode: "class",
+};
+```
+
+⚡🎉Boom! You are ready to use darkTheme in tailwind.
+
+> Caution! Your class must be set to `"dark"`, which is the default value we have used for this library. Tailwind, as of now, requires that class name must be `"dark"` for dark-theme.
+
+That's it! Now you can use dark-mode specific classes:
+
+```tsx
+<h1 className="text-black dark:text-white">
+```
+
+# Contributing
 
 ## What's inside?
 
@@ -133,22 +389,11 @@ cd nthul
 pnpm dev
 ```
 
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
-
 ### 🤩 Don't forger to start [this repo](https://github.com/react18-tools/nthul)!
 
 Want hands-on course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://mayank-chaudhari.vercel.app/courses/react-and-next-js-with-typescript) and [The Game of Chess with Next.js, React and TypeScrypt](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
 
-![Repo Stats](https://repobeats.axiom.co/api/embed/2ef1a24385037998386148afe5a98ded6006f410.svg "Repobeats analytics image")
+![Repo Stats](https://repobeats.axiom.co/api/embed/85eec5cd9a0ede65ac366f834ada1a170ef775c8.svg "Repobeats analytics image")
 
 ## License
 
