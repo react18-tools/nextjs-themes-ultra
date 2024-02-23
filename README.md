@@ -1,6 +1,6 @@
 # Nextjs-Themes-Ultralight
 
-[![test](https://github.com/mayank1513/nthul/actions/workflows/test.yml/badge.svg)](https://github.com/mayank1513/nthul/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/aa896ec14c570f3bb274/maintainability)](https://codeclimate.com/github/mayank1513/nthul/maintainability) [![codecov](https://codecov.io/gh/mayank1513/nthul/graph/badge.svg)](https://codecov.io/gh/mayank1513/nthul) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![test](https://github.com/react18-tools/nthul/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nthul/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/aa896ec14c570f3bb274/maintainability)](https://codeclimate.com/github/react18-tools/nthul/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nthul/graph/badge.svg)](https://codecov.io/gh/react18-tools/nthul) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 
 ## Features
 
@@ -32,7 +32,7 @@ This template offers following pre-configured features. Additionally, your repo 
 
 ✅ Workflow to automatically rebrand entire template based on the name of the repo you create from this template. (As soon as you create a repo from this template, setup workflow is triggered which renames nthul to your repo name and does lots of other fixes to set you up and running.)
 
-✅ With all these features, this readme file contains a quick checklist for you to configure Codecov and other badges, setup your docs website on GitHub pages, etc. See [Checklist](https://github.com/mayank1513/nthul/#checklist).
+✅ With all these features, this readme file contains a quick checklist for you to configure Codecov and other badges, setup your docs website on GitHub pages, etc. See [Checklist](https://github.com/react18-tools/nthul/#checklist).
 
 #### Create a library that is
 
@@ -44,7 +44,7 @@ This template offers following pre-configured features. Additionally, your repo 
 
 ✅ Works with all build systems/tools/frameworks for React18
 
-✅ Doccumented with [Typedoc](https://mayank1513.github.io/nthul) ([Docs](https://react18-tools.github.io/turborepo-template))
+✅ Doccumented with [Typedoc](https://react18-tools.github.io/nthul) ([Docs](https://react18-tools.github.io/nthul))
 
 ## Install
 
@@ -86,7 +86,7 @@ $ yarn add nthul
 - [ ] Create your library and update examples
 - [ ] Update README
 - [ ] Setup GitHub pages to deploy docs
-  - [ ] Go to [repo settings](https://github.com/mayank1513/nthul/settings/pages) -> pages (On left panel); Select deploy from a branch; Then Select `main` and `/docs`
+  - [ ] Go to [repo settings](https://github.com/react18-tools/nthul/settings/pages) -> pages (On left panel); Select deploy from a branch; Then Select `main` and `/docs`
 - [ ] Push your changes/Create PR and see your library being automatically tested and published
 - [ ] Optionally deploy your example(s) to Vercel.
 - [ ] You are most welcome to star this template, contribute, and/or sponsor the `terbo-repo-template` project or my other open-source work
@@ -144,7 +144,7 @@ Learn more about the power of Turborepo:
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
 
-### 🤩 Don't forger to start [this repo](https://github.com/mayank1513/nthul)!
+### 🤩 Don't forger to start [this repo](https://github.com/react18-tools/nthul)!
 
 Want hands-on course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://mayank-chaudhari.vercel.app/courses/react-and-next-js-with-typescript) and [The Game of Chess with Next.js, React and TypeScrypt](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
 

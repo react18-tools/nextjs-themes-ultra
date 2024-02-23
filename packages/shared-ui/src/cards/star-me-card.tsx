@@ -3,7 +3,7 @@ import styles from "./cards.module.css";
 
 export function StarMeCard() {
   return (
-    <StarMe className={styles.card} gitHubUrl="https://github.com/mayank1513/nthul">
+    <StarMe className={styles.card} gitHubUrl="https://github.com/react18-tools/nthul">
       <h2>
         Star this repo <span>-&gt;</span>
       </h2>

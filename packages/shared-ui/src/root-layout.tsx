@@ -22,7 +22,11 @@ export function SharedRootLayout({ children, className = "", ...props }: SharedR
         <Cards />
       </main>
       <Footer />
-      <ForkMe bgColor="var(--text-color)" gitHubUrl="https://github.com/mayank1513/nthul" textColor="var(--bg-color)" />
+      <ForkMe
+        bgColor="var(--text-color)"
+        gitHubUrl="https://github.com/react18-tools/nthul"
+        textColor="var(--bg-color)"
+      />
     </>
   );
 }
