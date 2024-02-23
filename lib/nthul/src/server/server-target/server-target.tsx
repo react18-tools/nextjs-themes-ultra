@@ -22,5 +22,5 @@ export function ServerTarget({ tag, targetId }: ServerTargetProps) {
   const cls = `th-${theme} ${cs}`;
 
   const Tag = tag ?? "div";
-  return <Tag className={cls} data-nth="next" id={key} />;
+  return <Tag className={cls} data-nth="next" data-testid="server-target" id={key} />;
 }
