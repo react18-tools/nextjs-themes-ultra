@@ -3,25 +3,25 @@ import { StarMeCard } from "./star-me-card";
 import { Card } from "./card";
 
 const cards = [
-	{
-		href: "https://mayank1513.github.io/nthul/",
-		title: "Docs",
-		description: "Explore the official docs.",
-	},
-	{
-		href: "https://github.com/mayank1513/nthul",
-		title: "More Examples",
-		description: "Explore more examples on official GitHub Repo.",
-	},
+  {
+    href: "https://mayank1513.github.io/nthul/",
+    title: "Docs",
+    description: "Explore the official docs.",
+  },
+  {
+    href: "https://github.com/mayank1513/nthul",
+    title: "More Examples",
+    description: "Explore more examples on official GitHub Repo.",
+  },
 ];
 
 export function Cards() {
-	return (
-		<div className={styles.cards}>
-			{cards.map(card => (
-				<Card key={card.href} {...card} />
-			))}
-			<StarMeCard />
-		</div>
-	);
+  return (
+    <div className={styles.cards}>
+      {cards.map(card => (
+        <Card key={card.href} {...card} />
+      ))}
+      <StarMeCard />
+    </div>
+  );
 }

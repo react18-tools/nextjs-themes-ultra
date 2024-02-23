@@ -12,21 +12,17 @@ import { Footer } from "./root/footer";
 export type SharedRootLayoutProps = HTMLProps<HTMLElement>;
 
 export function SharedRootLayout({ children, className = "", ...props }: SharedRootLayoutProps) {
-	return (
-		<>
-			<ThemeSwitcher themeTransition="all 0.3s ease-in-out 0s" />
-			<main className={`${styles.main} ${className}`} {...props}>
-				<Description />
-				{children}
-				<Hero />
-				<Cards />
-			</main>
-			<Footer />
-			<ForkMe
-				bgColor="var(--text-color)"
-				gitHubUrl="https://github.com/mayank1513/nthul"
-				textColor="var(--bg-color)"
-			/>
-		</>
-	);
+  return (
+    <>
+      <ThemeSwitcher themeTransition="all 0.3s ease-in-out 0s" />
+      <main className={`${styles.main} ${className}`} {...props}>
+        <Description />
+        {children}
+        <Hero />
+        <Cards />
+      </main>
+      <Footer />
+      <ForkMe bgColor="var(--text-color)" gitHubUrl="https://github.com/mayank1513/nthul" textColor="var(--bg-color)" />
+    </>
+  );
 }
