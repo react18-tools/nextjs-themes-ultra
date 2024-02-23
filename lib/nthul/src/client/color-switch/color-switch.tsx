@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useTheme } from "../../hooks/use-theme";
+import { useTheme } from "../../hooks";
 
 export interface ColorSwitchProps {
   /** id of target element if you are applying theme only to specific container. Should be same as corresponding ThemeSwitcher, etc. */
