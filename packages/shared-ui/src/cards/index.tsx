@@ -4,12 +4,12 @@ import { Card } from "./card";
 
 const cards = [
   {
-    href: "https://mayank1513.github.io/nthul/",
+    href: "https://react18-tools.github.io/nthul/",
     title: "Docs",
     description: "Explore the official docs.",
   },
   {
-    href: "https://github.com/mayank1513/nthul",
+    href: "https://github.com/react18-tools/nthul",
     title: "More Examples",
     description: "Explore more examples on official GitHub Repo.",
   },
