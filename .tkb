@@ -19,7 +19,7 @@
     "fqhes_YS14GQopOUs7K-7": {
       "id": "fqhes_YS14GQopOUs7K-7",
       "description": "update workflows to replace mayank1513",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "-FlzW8htLo-6jz5-ZqjEx": {
       "id": "-FlzW8htLo-6jz5-ZqjEx",
@@ -38,7 +38,6 @@
       "title": "To do",
       "tasksIds": [
         "RtA7NBfPOlfnVHqk54rMD",
-        "fqhes_YS14GQopOUs7K-7",
         "-FlzW8htLo-6jz5-ZqjEx",
         "5fLtFF1sHPxsPjq-wWOxv"
       ]
@@ -52,6 +51,7 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "fqhes_YS14GQopOUs7K-7",
         "task-ZJpp-dpxx3KxRMsAPNuMC",
         "4CTOhRPjKrEAW5AHYsV7P"
       ]
