@@ -79,15 +79,17 @@ function modifyTransition(themeTransition = "none") {
 export interface UpdateDOMProps {
 	targetId?: string;
 	themeState: ThemeState;
+	dontSync?: boolean;
 }
 
-function updateDOM({ targetId, themeState }: UpdateDOMProps) {
+function updateDOM({ targetId, themeState, dontSync }: UpdateDOMProps) {
 	const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
 	const resolvedColorScheme = csp === "system" ? scs : csp;
+	const key = targetId ?? DEFAULT_ID;
 	// update DOM
 	let shoulCreateCookie = false;
-	const target = document.getElementById(targetId ?? DEFAULT_ID);
-	shoulCreateCookie = target?.getAttribute("data-nth") === "next";
+	const target = document.getElementById(key);
+	shoulCreateCookie = !dontSync && target?.getAttribute("data-nth") === "next";
 
 	/** do not update documentElement for local targets */
 	const targets = targetId ? [target] : [target, document.documentElement];
@@ -102,7 +104,8 @@ function updateDOM({ targetId, themeState }: UpdateDOMProps) {
 		t?.classList.add(resolvedColorScheme);
 	});
 
-	return shoulCreateCookie;
+	if (shoulCreateCookie)
+		document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
 }
 
 export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwitcherProps) {
@@ -116,16 +119,13 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwit
 	/** update DOM and storage */
 	React.useEffect(() => {
 		const restoreTransitions = modifyTransition(themeTransition);
-		const shoulCreateCookie = updateDOM({ targetId, themeState });
+		updateDOM({ targetId, themeState, dontSync });
 		if (!dontSync) {
 			// save to localStorage
 			const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
 			const stateToSave = [theme, csp, scs].join(",");
 			const key = targetId ?? DEFAULT_ID;
 			localStorage.setItem(key, stateToSave);
-			if (shoulCreateCookie) {
-				document.cookie = `${key}=${stateToSave}; max-age=31536000; SameSite=Strict;`;
-			}
 		}
 		restoreTransitions();
 	}, [dontSync, targetId, themeState, themeTransition]);
