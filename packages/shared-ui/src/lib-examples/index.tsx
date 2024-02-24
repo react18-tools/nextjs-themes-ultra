@@ -8,7 +8,7 @@ export default function LibExamples() {
   return (
     <div className={styles["lib-example-container"]}>
       <h1>
-        <Logo /> examples.
+        <Logo /> examples
       </h1>
       <div className={styles.globalThemes}>
         <h2>Global Themes</h2>
