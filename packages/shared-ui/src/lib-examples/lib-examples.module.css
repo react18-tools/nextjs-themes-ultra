@@ -3,21 +3,65 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.lib-example-container h1 {
+  text-align: center;
+  width: 100%;
 }
 
 .example {
-  min-width: 200px;
-  min-height: 200px;
-  flex-grow: 1;
-  border-radius: 20px;  
+  border-radius: 10px;
+  box-shadow: 0 0 10px gray;
+  overflow: hidden;
+  margin-bottom: 50px;
+  background: var(--bg-color);
 }
 
 .example * {
   background: var(--bg-color);
 }
 
+.example header {
+  padding: 10px;
+  text-align: end;
+}
 
-.lib-example-container h1 {
-  text-align: center;
-  width: 100%;
+.example main {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+}
+
+.themes {
+  --bg1: var(--bg-dark);
+  --bg2: var(--bg-light);
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.themes button {
+  all: reset;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(-45deg, var(--bg1), var(--bg1) 45%, var(--bg2) 55%, var(--bg2));
+  box-shadow: 0 0 10px gray;
+  cursor: pointer;
+}
+
+.theme1 {
+  --bg1: var(--th1-bg-dark);
+  --bg2: var(--th1-bg-light);
+}
+
+.theme2 {
+  --bg1: var(--th2-bg-dark);
+  --bg2: var(--th2-bg-light);
 }

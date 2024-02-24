@@ -11,6 +11,7 @@ export default function SimpleColorSwitch() {
       <header>
         <ColorSwitch targetId={targetId} />
       </header>
+      <main>Simple dark/light scopped theme.</main>
     </div>
   );
 }

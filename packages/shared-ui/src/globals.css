@@ -3,12 +3,29 @@
 }
 
 :root {
+  /* colors */
+  --bg-light: #fff;
+  --color-light: #000;
+  --bg-dark: #000;
+  --color-dark: #fff;
+
+  --th1-bg-light: #aaf;
+  --th1-color-light: #00f;
+  --th1-bg-dark: #008;
+  --th1-color-dark: #aaf;
+
+  --th2-bg-light: #faa;
+  --th2-color-light: #f00;
+  --th2-bg-dark: #800;
+  --th2-color-dark: #fbb;
+
+  /* root style variables */
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
     "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --bg-color: #fff;
-  --text-color: #000;
+  --bg-color: var(--bg-light);
+  --text-color: var(--color-light);
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -28,10 +45,12 @@
 }
 
 /* dark themes */
-.dark,
-.dark ~ * {
-  --bg-color: #000;
-  --text-color: #fff;
+.th-.dark,
+.th-.dark *,
+.th-.dark ~ *,
+.th-.dark ~ * * {
+  --bg-color: var(--bg-dark);
+  --text-color: var(--color-dark);
 }
 
 .dark,
@@ -48,10 +67,36 @@
 
 /* light themes */
 
-.light,
-.light ~ * {
-  --bg-color: #fff;
-  --text-color: #000;
+.th-.light,
+.th-.light *,
+.th-.light ~ *,
+.th-.light ~ * * {
+  --bg-color: var(--bg-light);
+  --text-color: var(--color-light);
+}
+
+.th-theme1.light ~ *,
+.th-theme1.light ~ * * {
+  --bg-color: var(--th1-bg-light);
+  --text-color: var(--th1-color-light);
+}
+
+.th-theme1.dark ~ *,
+.th-theme1.dark ~ * * {
+  --bg-color: var(--th1-bg-dark);
+  --text-color: var(--th1-color-dark);
+}
+
+.th-theme2.light ~ *,
+.th-theme2.light ~ * * {
+  --bg-color: var(--th2-bg-light);
+  --text-color: var(--th2-color-light);
+}
+
+.th-theme2.dark ~ *,
+.th-theme2.dark ~ * * {
+  --bg-color: var(--th2-bg-dark);
+  --text-color: var(--th2-color-dark);
 }
 
 html {
