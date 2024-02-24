@@ -9,6 +9,8 @@ interface ServerTargetProps {
    * make sure you pass same targetId to corresponding `ThemeSwitcher`, `ColorSwitch` and `useTheme` hook as well.
    * @defaultValue undefined*/
   targetId?: string;
+  /** provide styles object if you are using CSS/SCSS modules. */
+  styles?: Record<string, string>;
 }
 
 /**
@@ -24,12 +26,20 @@ interface ServerTargetProps {
  * </html>
  * ```
  */
-export function ServerTarget({ tag, targetId }: ServerTargetProps) {
+export function ServerTarget({ tag, targetId, styles }: ServerTargetProps) {
   const key = targetId || DEFAULT_ID;
   const val = cookies().get(key)?.value ?? ",light";
-  const [theme, cs] = val.split(",") as [string, "dark" | "light"];
+  let [theme, cs] = val.split(",") as [string, string];
+  /** to increase specificity for scoped targets. */
+  let specificity = targetId ? "nth-scoped" : "";
 
-  const cls = `th-${theme} ${cs}`;
+  if (styles) {
+    theme = styles[theme];
+    cs = styles[cs];
+    specificity = styles[specificity];
+  }
+
+  const cls = `th-${theme} ${cs} ${specificity}`;
 
   const Tag = tag ?? "div";
   return <Tag className={cls} data-nth="next" data-testid="server-target" id={key} />;
