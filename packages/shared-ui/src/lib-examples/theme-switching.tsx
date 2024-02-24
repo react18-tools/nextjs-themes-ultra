@@ -1,10 +1,9 @@
 import { ColorSwitch, ThemeSwitcher } from "nthul";
 import { ServerTarget } from "nthul/server";
-import styles from "../lib-examples.module.css";
-import ThemeButton from "./theme-button";
+import styles from "./lib-examples.module.css";
+import ThemesList from "./themes-list";
 
-export const targetId = "theme-switching";
-const themes = ["", "theme1", "theme2"];
+const targetId = "theme-switching";
 
 export default function SimpleColorSwitch() {
   return (
@@ -16,11 +15,7 @@ export default function SimpleColorSwitch() {
       </header>
       <main>
         Simple scoped multi-theme.
-        <ul className={styles.themes}>
-          {themes.map(th => (
-            <ThemeButton key={th} {...{ targetId, th }} />
-          ))}
-        </ul>
+        <ThemesList targetId={targetId} />
       </main>
     </div>
   );

@@ -1,6 +1,6 @@
 import { ColorSwitch, ThemeSwitcher } from "nthul";
 import { ServerTarget } from "nthul/server";
-import styles from "../lib-examples.module.css";
+import styles from "./lib-examples.module.css";
 
 const targetId = "simple-color-switch";
 export default function SimpleColorSwitch() {

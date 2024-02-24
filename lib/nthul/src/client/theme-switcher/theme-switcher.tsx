@@ -93,8 +93,8 @@ function applyClasses({ targets, theme, resolvedColorScheme, styles }: ApplyClas
   targets.forEach(t => {
     t?.classList.remove(cls[0]); // dark
     t?.classList.remove(cls[1]); // light
-    t?.classList.forEach(cls => {
-      if (cls.match(/(^|_)th-/)) t.classList.remove(cls);
+    t?.classList.forEach(c => {
+      if (/(?:^|_)th-/.exec(c)) t.classList.remove(c);
     });
     t?.classList.add(`th-${cls[2]}`); // theme
     t?.classList.add(cls[3]); // resolvedColorScheme
@@ -149,6 +149,6 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition, styles }: T
       localStorage.setItem(key, stateToSave);
     }
     restoreTransitions();
-  }, [dontSync, targetId, themeState, themeTransition]);
+  }, [dontSync, styles, targetId, themeState, themeTransition]);
   return null;
 }
