@@ -57,6 +57,7 @@
 
 .center > div {
   position: relative;
+  text-align: center;
 }
 
 .center::before {
