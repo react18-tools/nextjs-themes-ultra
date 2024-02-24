@@ -199,7 +199,18 @@ That's it, your Next.js app fully supports dark mode, including System preferenc
   --background: white;
   --foreground: blue;
 }
+
+/* for scoped containers add .nth-scoped call as well - required only when using containerised themes. */
+.nth-scoped.th-.dark { /* use th- to make sure outer theme is not applied to container with no theme  */
+  ...
+}
+
+.nth-scoped.th-theme.dark {
+  ...
+}
 ```
+
+Also see [Example CSS file](https://github.com/react18-tools/nextjs-themes-ultralight/blob/main/packages/shared-ui/src/globals.css)
 
 #### When using `ServerTarget`
 
@@ -313,7 +324,7 @@ We have not added any components or hooks for forcing `theme` and `color-scheme`
 ```tsx
 // force a theme for the page
 export default function Page() {
-  return <div className="dark th-theme1">...</div>;
+  return <div className="dark nth-scoped th-theme1">...</div>;
 }
 ```
 
