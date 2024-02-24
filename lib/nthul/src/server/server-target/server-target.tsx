@@ -36,7 +36,7 @@ export function ServerTarget({ tag, targetId, styles }: ServerTargetProps) {
   if (styles) {
     theme = styles[theme];
     cs = styles[cs];
-    specificity = styles[specificity];
+    specificity = styles[specificity] ?? "";
   }
 
   const cls = `th-${theme} ${cs} ${specificity}`;
