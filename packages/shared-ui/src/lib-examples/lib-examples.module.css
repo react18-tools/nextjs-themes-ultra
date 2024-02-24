@@ -1,0 +1,23 @@
+.lib-example-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.example {
+  min-width: 200px;
+  min-height: 200px;
+  flex-grow: 1;
+  border-radius: 20px;  
+}
+
+.example * {
+  background: var(--bg-color);
+}
+
+
+.lib-example-container h1 {
+  text-align: center;
+  width: 100%;
+}

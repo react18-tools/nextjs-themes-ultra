@@ -8,6 +8,7 @@ import { Cards } from "./cards";
 import { Description } from "./root/description";
 import { Hero } from "./root/hero";
 import { Footer } from "./root/footer";
+import LibExamples from "./lib-examples";
 
 export type SharedRootLayoutProps = HTMLProps<HTMLElement>;
 
@@ -19,6 +20,7 @@ export function SharedRootLayout({ children, className = "", ...props }: SharedR
         <Description />
         {children}
         <Hero />
+        <LibExamples />
         <Cards />
       </main>
       <Footer />

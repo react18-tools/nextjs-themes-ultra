@@ -34,7 +34,7 @@
     "a7ksr41sN7kQNaH8Io-dV": {
       "id": "a7ksr41sN7kQNaH8Io-dV",
       "description": "Add support for css modules",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     }
   },
   "columns": [
@@ -42,8 +42,7 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "p1R-Q4atxMo-29mSa7mb6",
-        "a7ksr41sN7kQNaH8Io-dV"
+        "p1R-Q4atxMo-29mSa7mb6"
       ]
     },
     {
@@ -57,6 +56,7 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "a7ksr41sN7kQNaH8Io-dV",
         "RtA7NBfPOlfnVHqk54rMD",
         "fqhes_YS14GQopOUs7K-7",
         "task-ZJpp-dpxx3KxRMsAPNuMC",
