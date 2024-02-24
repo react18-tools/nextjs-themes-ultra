@@ -24,12 +24,17 @@
     "-FlzW8htLo-6jz5-ZqjEx": {
       "id": "-FlzW8htLo-6jz5-ZqjEx",
       "description": "update examples to showcase edge cases",
+      "columnId": "column-doing"
+    },
+    "p1R-Q4atxMo-29mSa7mb6": {
+      "id": "p1R-Q4atxMo-29mSa7mb6",
+      "description": "Remove scoped packages from turborepo-template",
       "columnId": "column-todo"
     },
-    "5fLtFF1sHPxsPjq-wWOxv": {
-      "id": "5fLtFF1sHPxsPjq-wWOxv",
-      "description": "Fix turbo-repo template bug - replacing only first doc link in readme --- look at the [doc] with [TypeDoc]",
-      "columnId": "column-todo"
+    "a7ksr41sN7kQNaH8Io-dV": {
+      "id": "a7ksr41sN7kQNaH8Io-dV",
+      "description": "Add support for css modules",
+      "columnId": "column-done"
     }
   },
   "columns": [
@@ -37,19 +42,21 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "-FlzW8htLo-6jz5-ZqjEx",
-        "5fLtFF1sHPxsPjq-wWOxv"
+        "p1R-Q4atxMo-29mSa7mb6"
       ]
     },
     {
       "id": "column-doing",
       "title": "Doing",
-      "tasksIds": []
+      "tasksIds": [
+        "-FlzW8htLo-6jz5-ZqjEx"
+      ]
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "a7ksr41sN7kQNaH8Io-dV",
         "RtA7NBfPOlfnVHqk54rMD",
         "fqhes_YS14GQopOUs7K-7",
         "task-ZJpp-dpxx3KxRMsAPNuMC",

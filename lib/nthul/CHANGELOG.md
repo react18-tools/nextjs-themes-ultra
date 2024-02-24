@@ -1,5 +1,12 @@
 # @mayank1513/fork-me
 
+## 0.1.0
+
+### Minor Changes
+
+- Add `nth-scoped` class to increase CSS specificity when applying themes only to specific container.
+- bb06c15: Support CSS Modules for scoped theming.
+
 ## 0.0.1
 
 ### Patch Changes

@@ -11,6 +11,8 @@ export interface ThemeSwitcherProps {
   dontSync?: boolean;
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   themeTransition?: string;
+  /** provide styles object if you are using CSS/SCSS modules. */
+  styles?: Record<string, string>;
 }
 
 function useMediaQuery(setThemeState: SetStateAction<ThemeState>) {
@@ -77,13 +79,36 @@ function modifyTransition(themeTransition = "none", targetId?: string) {
   };
 }
 
+export interface ApplyClassesProps {
+  targets: (HTMLElement | null)[];
+  theme: string;
+  resolvedColorScheme: "light" | "dark";
+  styles?: Record<string, string>;
+}
+
+function applyClasses({ targets, theme, resolvedColorScheme, styles }: ApplyClassesProps) {
+  let cls = ["dark", "light", theme, resolvedColorScheme];
+  if (styles) cls = cls.map(c => styles[c]);
+
+  targets.forEach(t => {
+    t?.classList.remove(cls[0]); // dark
+    t?.classList.remove(cls[1]); // light
+    t?.classList.forEach(c => {
+      if (/(?:^|_)th-/.exec(c)) t.classList.remove(c);
+    });
+    t?.classList.add(`th-${cls[2]}`); // theme
+    t?.classList.add(cls[3]); // resolvedColorScheme
+  });
+}
+
 export interface UpdateDOMProps {
   targetId?: string;
   themeState: ThemeState;
   dontSync?: boolean;
+  styles?: Record<string, string>;
 }
 
-function updateDOM({ targetId, themeState, dontSync }: UpdateDOMProps) {
+function updateDOM({ targetId, themeState, dontSync, styles }: UpdateDOMProps) {
   const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
   const resolvedColorScheme = csp === "system" ? scs : csp;
   const key = targetId ?? DEFAULT_ID;
@@ -95,15 +120,7 @@ function updateDOM({ targetId, themeState, dontSync }: UpdateDOMProps) {
   /** do not update documentElement for local targets */
   const targets = targetId ? [target] : [target, document.documentElement];
 
-  targets.forEach(t => {
-    t?.classList.remove("dark");
-    t?.classList.remove("light");
-    t?.classList.forEach(cls => {
-      if (cls.startsWith("th-")) t.classList.remove(cls);
-    });
-    t?.classList.add(`th-${theme}`);
-    t?.classList.add(resolvedColorScheme);
-  });
+  applyClasses({ targets, styles, resolvedColorScheme, theme });
 
   if (shoulCreateCookie) document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
 }
@@ -112,7 +129,7 @@ function updateDOM({ targetId, themeState, dontSync }: UpdateDOMProps) {
  * The core ThemeSwitcher component wich applies classes and transitions.
  * Cookies are set only if corresponding ServerTarget is detected.
  */
-export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwitcherProps) {
+export function ThemeSwitcher({ targetId, dontSync, themeTransition, styles }: ThemeSwitcherProps) {
   if (targetId === "") throw new Error("id can not be an empty string");
   const [themeState, setThemeState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
 
@@ -123,7 +140,7 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwit
   /** update DOM and storage */
   React.useEffect(() => {
     const restoreTransitions = modifyTransition(themeTransition, targetId);
-    updateDOM({ targetId, themeState, dontSync });
+    updateDOM({ targetId, themeState, dontSync, styles });
     if (!dontSync && tInit < Date.now() - 300) {
       // save to localStorage
       const { theme, colorSchemePreference } = themeState;
@@ -132,6 +149,6 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition }: ThemeSwit
       localStorage.setItem(key, stateToSave);
     }
     restoreTransitions();
-  }, [dontSync, targetId, themeState, themeTransition]);
+  }, [dontSync, styles, targetId, themeState, themeTransition]);
   return null;
 }
