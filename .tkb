@@ -1,40 +1,25 @@
 {
   "scope": "Workspace",
   "tasks": {
-    "task-ZJpp-dpxx3KxRMsAPNuMC": {
-      "id": "task-ZJpp-dpxx3KxRMsAPNuMC",
-      "description": "Implement tests",
-      "columnId": "column-done"
-    },
-    "4CTOhRPjKrEAW5AHYsV7P": {
-      "id": "4CTOhRPjKrEAW5AHYsV7P",
-      "description": "Update doc comments",
-      "columnId": "column-done"
-    },
-    "RtA7NBfPOlfnVHqk54rMD": {
-      "id": "RtA7NBfPOlfnVHqk54rMD",
-      "description": "update readme",
-      "columnId": "column-done"
-    },
-    "fqhes_YS14GQopOUs7K-7": {
-      "id": "fqhes_YS14GQopOUs7K-7",
-      "description": "update workflows to replace mayank1513",
-      "columnId": "column-done"
-    },
     "-FlzW8htLo-6jz5-ZqjEx": {
       "id": "-FlzW8htLo-6jz5-ZqjEx",
       "description": "update examples to showcase edge cases",
-      "columnId": "column-doing"
+      "columnId": "column-done"
     },
     "p1R-Q4atxMo-29mSa7mb6": {
       "id": "p1R-Q4atxMo-29mSa7mb6",
       "description": "Remove scoped packages from turborepo-template",
+      "columnId": "column-done"
+    },
+    "J1yONFe2BVs5GbQJj1SXG": {
+      "id": "J1yONFe2BVs5GbQJj1SXG",
+      "description": "Add ThemeContainer server component",
       "columnId": "column-todo"
     },
-    "a7ksr41sN7kQNaH8Io-dV": {
-      "id": "a7ksr41sN7kQNaH8Io-dV",
-      "description": "Add support for css modules",
-      "columnId": "column-done"
+    "G-1H47JpSI69kav1qZ-kp": {
+      "id": "G-1H47JpSI69kav1qZ-kp",
+      "description": "Test setting theme from useEffect without any delay",
+      "columnId": "column-todo"
     }
   },
   "columns": [
@@ -42,25 +27,21 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "p1R-Q4atxMo-29mSa7mb6"
+        "J1yONFe2BVs5GbQJj1SXG",
+        "G-1H47JpSI69kav1qZ-kp"
       ]
     },
     {
       "id": "column-doing",
       "title": "Doing",
-      "tasksIds": [
-        "-FlzW8htLo-6jz5-ZqjEx"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
-        "a7ksr41sN7kQNaH8Io-dV",
-        "RtA7NBfPOlfnVHqk54rMD",
-        "fqhes_YS14GQopOUs7K-7",
-        "task-ZJpp-dpxx3KxRMsAPNuMC",
-        "4CTOhRPjKrEAW5AHYsV7P"
+        "p1R-Q4atxMo-29mSa7mb6",
+        "-FlzW8htLo-6jz5-ZqjEx"
       ]
     }
   ]

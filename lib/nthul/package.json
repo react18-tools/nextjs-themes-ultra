@@ -8,12 +8,12 @@
   "types": "./index.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react18-tools/nextjs-themes-ultralight.git"
+    "url": "git+https://github.com/react18-tools/nextjs-themes-ultra.git"
   },
   "bugs": {
-    "url": "https://github.com/react18-tools/nextjs-themes-ultralight/issues"
+    "url": "https://github.com/react18-tools/nextjs-themes-ultra/issues"
   },
-  "homepage": "https://github.com/react18-tools/nextjs-themes-ultralight/tree/main/lib/fork-me#readme",
+  "homepage": "https://github.com/react18-tools/nextjs-themes-ultra/tree/main/lib/fork-me#readme",
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
@@ -63,7 +63,7 @@
     "nextjs13",
     "nextjs14",
     "nextjs-themes",
-    "nextjs-themes-ultralight",
+    "nextjs-themes-ultra",
     "nextjs13-themes",
     "nextjs14-themes",
     "tailwind",
