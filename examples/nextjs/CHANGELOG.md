@@ -1,5 +1,13 @@
 # nextjs-example
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies
+  - nthul@0.2.0
+  - shared-ui@0.0.0
+
 ## 0.0.2
 
 ### Patch Changes

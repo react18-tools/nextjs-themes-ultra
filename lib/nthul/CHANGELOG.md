@@ -1,5 +1,12 @@
 # @mayank1513/fork-me
 
+## 0.2.0
+
+### Minor Changes
+
+- Add ForceTheme component for easily creating forced pages.
+  Fix CSS Modules Support.
+
 ## 0.1.0
 
 ### Minor Changes
