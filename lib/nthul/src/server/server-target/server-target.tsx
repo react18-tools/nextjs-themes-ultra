@@ -29,18 +29,13 @@ interface ServerTargetProps {
 export function ServerTarget({ tag, targetId, styles }: ServerTargetProps) {
   const key = targetId || DEFAULT_ID;
   const val = cookies().get(key)?.value ?? ",light";
-  let [theme, cs] = val.split(",") as [string, string];
+  const [theme, cs] = val.split(",") as [string, string];
   /** to increase specificity for scoped targets. */
-  let specificity = targetId ? "nth-scoped" : "";
+  const specificity = targetId ? "nth-scoped" : "";
 
-  if (styles) {
-    theme = styles[theme];
-    cs = styles[cs];
-    specificity = styles[specificity] ?? "";
-  }
-
-  const cls = `th-${theme} ${cs} ${specificity}`;
+  let classNames = [`th-${theme}`, cs, specificity];
+  if (styles) classNames = classNames.map(cls => styles[cls] ?? cls);
 
   const Tag = tag ?? "div";
-  return <Tag className={cls} data-nth="next" data-testid="server-target" id={key} />;
+  return <Tag className={classNames.join(" ")} data-nth="next" data-testid="server-target" id={key} />;
 }

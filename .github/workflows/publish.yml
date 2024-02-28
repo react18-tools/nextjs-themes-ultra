@@ -43,6 +43,15 @@ jobs:
           OWNER: ${{ github.event.repository.owner.login }}
           REPO: ${{ github.event.repository.name }}
 
+      - name: Publish package with long name for better SEO
+        continue-on-error: true
+        run: |
+          cd dist
+          sed -i -e "s/.*name.*/\t\"name\": \"nextjs-themes-ultra\",/" package.json
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
       # Publish lite version
       - run: node lite.js && pnpm build && pnpm publish-package && node scope.js && pnpm publish-package
         env:
@@ -52,7 +61,7 @@ jobs:
         continue-on-error: true
         run: |
           cd dist
-          sed -i -e "s/.*name.*/\t\"name\": \"nextjs-themes-ultralight\",/" package.json
+          sed -i -e "s/.*name.*/\t\"name\": \"nextjs-themes-ultralite\",/" package.json
           npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

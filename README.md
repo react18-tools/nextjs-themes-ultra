@@ -1,10 +1,10 @@
-# Nextjs-Themes-Ultralight
+# Nextjs-Themes-Ultra
 
-[![test](https://github.com/react18-tools/nextjs-themes-ultralight/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-themes-ultralight/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/85f6447e649201924a2c/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes-ultralight/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-themes-ultralight/graph/badge.svg)](https://codecov.io/gh/react18-tools/nextjs-themes-ultralight) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![test](https://github.com/react18-tools/nextjs-themes-ultra/actions/workflows/test.yml/badge.svg)](https://github.com/react18-tools/nextjs-themes-ultra/actions/workflows/test.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/85f6447e649201924a2c/maintainability)](https://codeclimate.com/github/react18-tools/nextjs-themes-ultra/maintainability) [![codecov](https://codecov.io/gh/react18-tools/nextjs-themes-ultra/graph/badge.svg)](https://codecov.io/gh/react18-tools/nextjs-themes-ultra) [![Version](https://img.shields.io/npm/v/nthul.svg?colorB=green)](https://www.npmjs.com/package/nthul) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/nthul.svg)](https://www.npmjs.com/package/nthul) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/nthul) [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 
 🤟 👉 [Unleash the Power of React Server Components](https://medium.com/javascript-in-plain-english/unleash-the-power-of-react-server-components-eb3fe7201231)
 
-> A canonical package with a longer and more descriptive name is also published - `nextjs-themes-ultralight`
+> A canonical package with a longer and more descriptive name is also published - `nextjs-themes-ultra`
 
 ## Motivation
 
@@ -42,7 +42,7 @@ I will update the main library [`nextjs-themes`](https://github.com/react18-tool
 
 ✅ Manipulate theme via `useTheme` hook
 
-✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes-ultralight) ([Docs](https://react18-tools.github.io/nextjs-themes-ultralight))
+✅ Documented with [Typedoc](https://react18-tools.github.io/nextjs-themes-ultra) ([Docs](https://react18-tools.github.io/nextjs-themes-ultra))
 
 ✅ Use combinations of `th-` and `dark` or `light` classes for dark/light variants of themes
 
@@ -50,11 +50,11 @@ I will update the main library [`nextjs-themes`](https://github.com/react18-tool
 
 ✅ Works with all build systems/tools/frameworks for React18
 
-> Feel free to [request](https://github.com/react18-tools/nextjs-themes-ultralight/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) or [discuss](https://github.com/react18-tools/nextjs-themes-ultralight/discussions) new features or [report bugs](https://github.com/react18-tools/nextjs-themes-ultralight/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
+> Feel free to [request](https://github.com/react18-tools/nextjs-themes-ultra/issues/new?assignees=&labels=&projects=&template=feature_request.md&title=) or [discuss](https://github.com/react18-tools/nextjs-themes-ultra/discussions) new features or [report bugs](https://github.com/react18-tools/nextjs-themes-ultra/issues/new?assignees=&labels=&projects=&template=bug_report.md&title=).
 
 ## Install
 
-> A canonical package with a longer and more descriptive name is also published - `nextjs-themes-ultralight`
+> A canonical package with a longer and more descriptive name is also published - `nextjs-themes-ultra`
 
 ```bash
 $ pnpm add nthul
@@ -167,7 +167,7 @@ An elegant color-switch to toggle coloe-schemes ("dark" | "light" | "system").
 
 ### HTML & CSS
 
-That's it, your Next.js app fully supports dark mode, including System preference with `prefers-color-scheme`. The theme is also immediately synced between tabs. By default, `nextjs-themes-ultralight` modifies the className on the `html` element, which you can easily use to style your app:
+That's it, your Next.js app fully supports dark mode, including System preference with `prefers-color-scheme`. The theme is also immediately synced between tabs. By default, `nthul` modifies the className on the `html` element, which you can easily use to style your app:
 
 ```css
 :root {
@@ -210,7 +210,7 @@ That's it, your Next.js app fully supports dark mode, including System preferenc
 }
 ```
 
-Also see [Example CSS file](https://github.com/react18-tools/nextjs-themes-ultralight/blob/main/packages/shared-ui/src/globals.css)
+Also see [Example CSS file](https://github.com/react18-tools/nextjs-themes-ultra/blob/main/packages/shared-ui/src/globals.css).
 
 #### When using `ServerTarget`
 
@@ -328,7 +328,7 @@ export default function Page() {
 }
 ```
 
-> We are open to listening your feedback - [Discussions](https://github.com/react18-tools/nextjs-themes-ultralight/discussions)
+> We are open to listening your feedback - [Discussions](https://github.com/react18-tools/nextjs-themes-ultra/discussions)
 
 ### With Styled Components and any CSS-in-JS
 
@@ -428,7 +428,7 @@ cd nthul
 pnpm dev
 ```
 
-### 🤩 Don't forger to start [this repo](https://github.com/react18-tools/nextjs-themes-ultralight)!
+### 🤩 Don't forger to start [this repo](https://github.com/react18-tools/nextjs-themes-ultra)!
 
 Want hands-on course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://mayank-chaudhari.vercel.app/courses/react-and-next-js-with-typescript) and [The Game of Chess with Next.js, React and TypeScrypt](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
 

@@ -37,11 +37,11 @@ describe("server-target", () => {
       },
     };
     const styles = {
-      [THEME]: `moduled-${THEME}`,
+      [`th-${THEME}`]: `moduled-${THEME}`,
       dark: `moduled-dark`,
       light: `moduled-light`,
     };
     render(<ServerTarget styles={styles} />);
-    expect(screen.getByTestId("server-target").className).toBe(`th-${styles[THEME]} ${styles[COLOR_SCHEME]} `);
+    expect(screen.getByTestId("server-target").className).toBe(`${styles[`th-${THEME}`]} ${styles[COLOR_SCHEME]} `);
   });
 });

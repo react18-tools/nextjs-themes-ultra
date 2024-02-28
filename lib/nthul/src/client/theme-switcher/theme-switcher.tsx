@@ -11,7 +11,7 @@ export interface ThemeSwitcherProps {
   dontSync?: boolean;
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   themeTransition?: string;
-  /** provide styles object if you are using CSS/SCSS modules. */
+  /** provide styles object imported from CSS/SCSS modules, if you are using CSS/SCSS modules. */
   styles?: Record<string, string>;
 }
 
@@ -87,8 +87,8 @@ export interface ApplyClassesProps {
 }
 
 function applyClasses({ targets, theme, resolvedColorScheme, styles }: ApplyClassesProps) {
-  let cls = ["dark", "light", theme, resolvedColorScheme];
-  if (styles) cls = cls.map(c => styles[c]);
+  let cls = ["dark", "light", `th-${theme}`, resolvedColorScheme];
+  if (styles) cls = cls.map(c => styles[c] ?? c);
 
   targets.forEach(t => {
     t?.classList.remove(cls[0]); // dark
@@ -96,7 +96,7 @@ function applyClasses({ targets, theme, resolvedColorScheme, styles }: ApplyClas
     t?.classList.forEach(c => {
       if (/(?:^|_)th-/.exec(c)) t.classList.remove(c);
     });
-    t?.classList.add(`th-${cls[2]}`); // theme
+    t?.classList.add(cls[2]); // theme
     t?.classList.add(cls[3]); // resolvedColorScheme
   });
 }
