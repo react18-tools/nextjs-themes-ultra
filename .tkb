@@ -14,7 +14,7 @@
     "J1yONFe2BVs5GbQJj1SXG": {
       "id": "J1yONFe2BVs5GbQJj1SXG",
       "description": "Add ThemeContainer server component",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "G-1H47JpSI69kav1qZ-kp": {
       "id": "G-1H47JpSI69kav1qZ-kp",
@@ -27,7 +27,6 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "J1yONFe2BVs5GbQJj1SXG",
         "G-1H47JpSI69kav1qZ-kp"
       ]
     },
@@ -40,6 +39,7 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "J1yONFe2BVs5GbQJj1SXG",
         "p1R-Q4atxMo-29mSa7mb6",
         "-FlzW8htLo-6jz5-ZqjEx"
       ]

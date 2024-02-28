@@ -5,4 +5,5 @@
  * */
 
 // server component exports
+export * from "./force-theme";
 export * from "./server-target";
