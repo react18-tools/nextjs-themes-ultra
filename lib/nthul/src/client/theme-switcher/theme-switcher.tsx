@@ -11,7 +11,7 @@ export interface ThemeSwitcherProps {
   dontSync?: boolean;
   /** force apply CSS transition property to all the elements during theme switching. E.g., `all .3s` */
   themeTransition?: string;
-  /** provide styles object if you are using CSS/SCSS modules. */
+  /** provide styles object imported from CSS/SCSS modules, if you are using CSS/SCSS modules. */
   styles?: Record<string, string>;
 }
 
