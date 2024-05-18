@@ -15,7 +15,7 @@ interface ForceThemeProps extends HTMLProps<HTMLElement> {
  * # ForceTheme
  *
  */
-export function ForceTheme({ children, tag, theme, colorScheme, styles, className, ...props }: ForceThemeProps) {
+export const ForceTheme = ({ children, tag, theme, colorScheme, styles, className, ...props }: ForceThemeProps) => {
   let classNames = [theme ? `th-${theme}` : "", colorScheme ?? "", "nth-scoped"];
   if (styles) classNames = classNames.map(cls => styles[cls] ?? cls);
   if (className) classNames.push(className);
@@ -26,4 +26,4 @@ export function ForceTheme({ children, tag, theme, colorScheme, styles, classNam
       {children}
     </Tag>
   );
-}
+};

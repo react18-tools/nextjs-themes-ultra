@@ -26,7 +26,7 @@ interface ServerTargetProps {
  * </html>
  * ```
  */
-export function ServerTarget({ tag, targetId, styles }: ServerTargetProps) {
+export const ServerTarget = ({ tag, targetId, styles }: ServerTargetProps) => {
   const key = targetId || DEFAULT_ID;
   const val = cookies().get(key)?.value ?? ",light";
   const [theme, cs] = val.split(",") as [string, string];
@@ -38,4 +38,4 @@ export function ServerTarget({ tag, targetId, styles }: ServerTargetProps) {
 
   const Tag = tag ?? "div";
   return <Tag className={classNames.join(" ")} data-nth="next" data-testid="server-target" id={key} />;
-}
+};

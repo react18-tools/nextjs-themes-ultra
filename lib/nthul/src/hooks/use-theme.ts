@@ -16,7 +16,7 @@ export interface UseTheme {
  * @param targetId - targetId corresponding to `ThemeSwitcher` and others tied to specific container.
  * @returns themeState and setter fucntions
  */
-export function useTheme(targetId?: string): UseTheme {
+export const useTheme = (targetId?: string): UseTheme => {
   const [themeState, setState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
   const { colorSchemePreference: csp, systemColorScheme: scs } = themeState;
   return {
@@ -29,4 +29,4 @@ export function useTheme(targetId?: string): UseTheme {
       setState({ ...themeState, theme });
     },
   };
-}
+};

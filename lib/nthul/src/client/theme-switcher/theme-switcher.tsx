@@ -15,7 +15,7 @@ export interface ThemeSwitcherProps {
   styles?: Record<string, string>;
 }
 
-function useMediaQuery(setThemeState: SetStateAction<ThemeState>) {
+const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
   React.useEffect(() => {
     // set event listener for media
     const media = matchMedia("(prefers-color-scheme: dark)");
@@ -28,20 +28,20 @@ function useMediaQuery(setThemeState: SetStateAction<ThemeState>) {
       media.removeEventListener("change", updateSystemColorScheme);
     };
   }, [setThemeState]);
-}
+};
 
 export interface LoadSyncedStateProps extends ThemeSwitcherProps {
   setThemeState: SetStateAction<ThemeState>;
 }
 
-function parseState(str?: string | null) {
+const parseState = (str?: string | null) => {
   const parts = (str ?? ",system").split(",") as [string, ColorSchemePreference];
   return { theme: parts[0], colorSchemePreference: parts[1] };
-}
+};
 
 let tInit = 0;
 
-function useLoadSyncedState({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) {
+const useLoadSyncedState = ({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) => {
   React.useEffect(() => {
     if (dontSync) return;
     tInit = Date.now();
@@ -55,9 +55,9 @@ function useLoadSyncedState({ dontSync, targetId, setThemeState }: LoadSyncedSta
       window.removeEventListener("storage", storageListener);
     };
   }, [dontSync, setThemeState, targetId]);
-}
+};
 
-function modifyTransition(themeTransition = "none", targetId?: string) {
+const modifyTransition = (themeTransition = "none", targetId?: string) => {
   const css = document.createElement("style");
   /** split by ';' to prevent CSS injection */
   const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
@@ -77,7 +77,7 @@ function modifyTransition(themeTransition = "none", targetId?: string) {
       document.head.removeChild(css);
     }, 1);
   };
-}
+};
 
 export interface ApplyClassesProps {
   targets: (HTMLElement | null)[];
@@ -86,7 +86,7 @@ export interface ApplyClassesProps {
   styles?: Record<string, string>;
 }
 
-function applyClasses({ targets, theme, resolvedColorScheme, styles }: ApplyClassesProps) {
+const applyClasses = ({ targets, theme, resolvedColorScheme, styles }: ApplyClassesProps) => {
   let cls = ["dark", "light", `th-${theme}`, resolvedColorScheme];
   if (styles) cls = cls.map(c => styles[c] ?? c);
 
@@ -99,7 +99,7 @@ function applyClasses({ targets, theme, resolvedColorScheme, styles }: ApplyClas
     t?.classList.add(cls[2]); // theme
     t?.classList.add(cls[3]); // resolvedColorScheme
   });
-}
+};
 
 export interface UpdateDOMProps {
   targetId?: string;
@@ -108,7 +108,7 @@ export interface UpdateDOMProps {
   styles?: Record<string, string>;
 }
 
-function updateDOM({ targetId, themeState, dontSync, styles }: UpdateDOMProps) {
+const updateDOM = ({ targetId, themeState, dontSync, styles }: UpdateDOMProps) => {
   const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
   const resolvedColorScheme = csp === "system" ? scs : csp;
   const key = targetId ?? DEFAULT_ID;
@@ -123,13 +123,13 @@ function updateDOM({ targetId, themeState, dontSync, styles }: UpdateDOMProps) {
   applyClasses({ targets, styles, resolvedColorScheme, theme });
 
   if (shoulCreateCookie) document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
-}
+};
 
 /**
  * The core ThemeSwitcher component wich applies classes and transitions.
  * Cookies are set only if corresponding ServerTarget is detected.
  */
-export function ThemeSwitcher({ targetId, dontSync, themeTransition, styles }: ThemeSwitcherProps) {
+export const ThemeSwitcher = ({ targetId, dontSync, themeTransition, styles }: ThemeSwitcherProps) => {
   if (targetId === "") throw new Error("id can not be an empty string");
   const [themeState, setThemeState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
 
@@ -151,4 +151,4 @@ export function ThemeSwitcher({ targetId, dontSync, themeTransition, styles }: T
     restoreTransitions();
   }, [dontSync, styles, targetId, themeState, themeTransition]);
   return null;
-}
+};

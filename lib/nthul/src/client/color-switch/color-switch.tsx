@@ -25,7 +25,7 @@ export interface ColorSwitchProps {
  * <ColorSwitch size={20} skipSystem />
  * ```
  */
-export function ColorSwitch({ size = 25, skipSystem, targetId }: ColorSwitchProps) {
+export const ColorSwitch = ({ size = 25, skipSystem, targetId }: ColorSwitchProps) => {
   const { setColorSchemePreference, resolvedColorScheme: rcs, colorSchemePreference: csp } = useTheme(targetId);
   const toggleColorScheme = () => {
     switch (csp) {
@@ -49,4 +49,4 @@ export function ColorSwitch({ size = 25, skipSystem, targetId }: ColorSwitchProp
       type="button"
     />
   );
-}
+};
