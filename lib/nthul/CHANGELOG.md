@@ -1,5 +1,11 @@
 # @mayank1513/fork-me
 
+## 0.2.1
+
+### Patch Changes
+
+- Attempt to reduce package size
+
 ## 0.2.0
 
 ### Minor Changes
