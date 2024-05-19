@@ -1,5 +1,11 @@
 # @mayank1513/fork-me
 
+## 0.2.2
+
+### Patch Changes
+
+- Fix build with errors
+
 ## 0.2.1
 
 ### Patch Changes
