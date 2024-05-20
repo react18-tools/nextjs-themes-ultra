@@ -1,5 +1,13 @@
 # vite-example
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  - nthul@0.2.3
+  - shared-ui@0.0.0
+
 ## 0.0.5
 
 ### Patch Changes
