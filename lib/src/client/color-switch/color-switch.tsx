@@ -1,5 +1,6 @@
-import { HTMLProps, ReactNode } from "react";
+import { HTMLProps } from "react";
 import styles from "./color-switch.module.scss";
+import { useTheme } from "../../hooks";
 
 interface ColorSwitchProps extends HTMLProps<HTMLDivElement> {
   /** id of target element if you are applying theme only to specific container. Should be same as corresponding ThemeSwitcher, etc. */
@@ -27,11 +28,33 @@ interface ColorSwitchProps extends HTMLProps<HTMLDivElement> {
  *
  * @source - Source code
  */
-export function ColorSwitch({ children, ...props }: ColorSwitchProps) {
-  const className = [props.className, styles["color-switch"]].filter(Boolean).join(" ");
+export function ColorSwitch({ targetId, skipSystem, size, ...props }: ColorSwitchProps) {
+  const {
+    setColorSchemePreference,
+    resolvedColorScheme: rcs,
+    colorSchemePreference: csp,
+  } = useTheme(targetId);
+  const toggleColorScheme = () => {
+    switch (csp) {
+      case "system":
+        setColorSchemePreference("dark");
+        break;
+      case "dark":
+        setColorSchemePreference("light");
+        break;
+      case "light":
+        setColorSchemePreference(skipSystem ? "dark" : "system");
+    }
+  };
   return (
-    <div {...props} className={className} data-testid="color-switch">
-      {children}
-    </div>
+    <button
+      className={["nthul--color-switch", rcs, csp === "system" ? "system" : ""].join(" ")}
+      data-testid="color-switch"
+      {...props}
+      onClick={toggleColorScheme}
+      // @ts-expect-error -- setting custom attribute
+      style={{ "--size": `${size}px` }}
+      type="button"
+    />
   );
 }

@@ -1,24 +1,32 @@
-import { useState } from "react";
+import useRGS from "r18gs";
+import type { ColorSchemePreference, ThemeState } from "../constants";
+import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../constants";
 
-export interface UseThemeOptions {
-  /** this is a dummy option */
-  dummy?: string;
+export interface UseTheme {
+  theme: string;
+  colorSchemePreference: ColorSchemePreference;
+  systemColorScheme: "dark" | "light";
+  resolvedColorScheme: "dark" | "light";
+  setColorSchemePreference: (colorSchemePreference: ColorSchemePreference) => void;
+  setTheme: (theme: string) => void;
 }
 
 /**
  * use this hook to gain access to theme state and setters from your components.
- *
- * @example
- * ```tsx
- * const [] = useTheme(options);
- * ```
- * 
- * @source - Source code
+ * @param targetId - targetId corresponding to `ThemeSwitcher` and others tied to specific container.
+ * @returns themeState and setter fucntions
  */
-
-export const useTheme = (options?: UseThemeOptions) => {
-  const [value, setValue] = useState(0);
+export const useTheme = (targetId?: string): UseTheme => {
+  const [themeState, setState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
+  const { colorSchemePreference: csp, systemColorScheme: scs } = themeState;
   return {
-    value, setValue
-  }
-}
+    ...themeState,
+    resolvedColorScheme: csp === "system" ? scs : csp,
+    setColorSchemePreference: (colorSchemePreference: ColorSchemePreference) => {
+      setState({ ...themeState, colorSchemePreference });
+    },
+    setTheme: (theme: string) => {
+      setState({ ...themeState, theme });
+    },
+  };
+};

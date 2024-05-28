@@ -1,13 +1,37 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, renderHook, screen } from "@testing-library/react";
 import { afterEach, describe, test } from "vitest";
+import { useTheme } from "../../hooks";
 import { ColorSwitch } from "./color-switch";
 
-describe.concurrent("color-switch", () => {
-	afterEach(cleanup);
+describe("color-switch", () => {
+  afterEach(cleanup);
 
-	test("Dummy test - test if renders without errors", ({ expect }) => {
-		const clx = "my-class";
-		render(<ColorSwitch className={clx} />);
-		expect(screen.getByTestId("color-switch").classList).toContain(clx);
-	});
+  test("color-scheme-toggle", async ({ expect }) => {
+    const hook = renderHook(() => useTheme());
+    render(<ColorSwitch />);
+    const element = screen.getByTestId("color-switch");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("dark");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("light");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("system");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("dark");
+  });
+
+  test("color-scheme-toggle with skip system", async ({ expect }) => {
+    const hook = renderHook(() => useTheme());
+    act(() => {
+      hook.result.current.setColorSchemePreference("system");
+    });
+    render(<ColorSwitch skipSystem />);
+    const element = screen.getByTestId("color-switch");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("dark");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("light");
+    await act(() => fireEvent.click(element));
+    expect(hook.result.current.colorSchemePreference).toBe("dark");
+  });
 });

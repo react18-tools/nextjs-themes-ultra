@@ -3,12 +3,17 @@ import { afterEach, describe, test } from "vitest";
 import { useTheme } from "./use-theme";
 
 describe.concurrent("useTheme", () => {
-	afterEach(cleanup);
+  afterEach(cleanup);
 
-	test("Dummy test - test if renders without errors", ({ expect }) => {
-		const { result } = renderHook(() => useTheme());
-    act(() => result.current.setValue(10));
-    expect(result.current.value).toBe(10);
-	});
+  test("Test colorSchemePreference", ({ expect }) => {
+    const { result } = renderHook(() => useTheme());
+    act(() => result.current.setColorSchemePreference("light"));
+    expect(result.current.colorSchemePreference).toBe("light");
+  });
+
+  test("Test theme", ({ expect }) => {
+    const { result } = renderHook(() => useTheme());
+    act(() => result.current.setTheme("my-theme"));
+    expect(result.current.theme).toBe("my-theme");
+  });
 });
-
