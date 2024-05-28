@@ -28,7 +28,8 @@ export default function ThemeSwitch() {
       tabIndex={0}
       onKeyDown={e => {
         if (e.key === "Enter") toggle();
-      }}>
+      }}
+      role="button">
       <ColorSwitch size={24} />
       <span className="mb">{colorSchemePreference}</span>
     </div>

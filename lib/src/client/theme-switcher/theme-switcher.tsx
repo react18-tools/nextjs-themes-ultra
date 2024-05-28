@@ -15,6 +15,7 @@ export interface ThemeSwitcherProps {
   styles?: Record<string, string>;
 }
 
+/** Add media query listener */
 const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
   useEffect(() => {
     // set event listener for media
