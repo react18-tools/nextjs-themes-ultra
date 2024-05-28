@@ -1,6 +1,6 @@
 import "./styles.css";
 import "react18-loaders/dist/index.css";
-import { NextJsServerTarget } from "nextjs-themes/server";
+import { ServerTarget } from "nthul/dist/server";
 import { ThemeSwitcher } from "nthul";
 import { Layout } from "@repo/shared/dist/server";
 import { GlobalLoader, Header } from "@repo/shared";
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextJsServerTarget />
+        <ServerTarget />
         <ThemeSwitcher themeTransition="all 0.3s ease-in-out 0s" />
         <Layout>
           <Header />

@@ -22,9 +22,15 @@ export default function ThemeSwitch() {
     }
   }, [colorSchemePreference]);
   return (
-    <button className={styles.themeswitch} onClick={toggle}>
-      <ColorSwitch />
+    <div
+      className={styles.themeswitch}
+      onClick={toggle}
+      tabIndex={0}
+      onKeyDown={e => {
+        if (e.key === "Enter") toggle();
+      }}>
+      <ColorSwitch size={24} />
       <span className="mb">{colorSchemePreference}</span>
-    </button>
+    </div>
   );
 }
