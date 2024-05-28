@@ -38,8 +38,8 @@ describe("server-target", () => {
     };
     const styles = {
       [`th-${THEME}`]: `moduled-${THEME}`,
-      dark: `moduled-dark`,
-      light: `moduled-light`,
+      dark: "moduled-dark",
+      light: "moduled-light",
     };
     render(<ServerTarget styles={styles} />);
     expect(screen.getByTestId("server-target").className).toBe(
