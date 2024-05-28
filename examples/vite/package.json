@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "@repo/shared": "workspace:*",
+    "nthul": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react18-loaders": "latest",
-    "react18-themes": "^3.1.0",
-    "nthul": "workspace:*"
+    "react18-loaders": "^1.0.1",
+    "react18-themes": "^3.1.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

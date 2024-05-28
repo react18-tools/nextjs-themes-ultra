@@ -41,10 +41,10 @@
     "@mayank1513/fork-me": "^2.1.2",
     "@repo/scripts": "workspace:*",
     "nextjs-themes": "^3.1.1",
+    "nthul": "workspace:*",
     "r18gs": "^1.0.2",
     "react-live": "^4.1.6",
-    "react18-loaders": "latest",
-    "nthul": "workspace:*"
+    "react18-loaders": "^1.0.1"
   },
   "peerDependencies": {
     "@types/react": "16.8 - 19",

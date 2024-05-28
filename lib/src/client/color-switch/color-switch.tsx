@@ -1,5 +1,4 @@
 import { HTMLProps } from "react";
-import styles from "./color-switch.module.scss";
 import { useTheme } from "../../hooks";
 
 interface ColorSwitchProps extends HTMLProps<HTMLDivElement> {
