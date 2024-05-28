@@ -9,7 +9,8 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "typecheck": "turbo typecheck",
-    "postinstall": "node scripts/rebrand.js"
+    "postinstall": "node scripts/rebrand.js",
+    "preinstall": "node scripts/update-pm.js"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.3",

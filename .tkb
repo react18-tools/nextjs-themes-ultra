@@ -1,0 +1,41 @@
+{
+  "scope": "Workspace",
+  "tasks": {
+    "G-1H47JpSI69kav1qZ-kp": {
+      "id": "G-1H47JpSI69kav1qZ-kp",
+      "description": "Star [this repository](https://github.com/react18-tools/turborepo-template/) for easy access and to show your support",
+      "columnId": "column-todo"
+    },
+    "gbzyhx0FwFfzRoE-iqVeu": {
+      "id": "gbzyhx0FwFfzRoE-iqVeu",
+      "description": "🌟 **Update `sripts/rebrand.config.json` if required.**",
+      "columnId": "column-todo"
+    },
+    "Y5__aEZl3Pbxp7r90HKpV": {
+      "id": "Y5__aEZl3Pbxp7r90HKpV",
+      "description": "Install `pnpm` using `npm i -g pnpm`",
+      "columnId": "column-todo"
+    }
+  },
+  "columns": [
+    {
+      "id": "column-todo",
+      "title": "To do",
+      "tasksIds": [
+        "G-1H47JpSI69kav1qZ-kp",
+        "gbzyhx0FwFfzRoE-iqVeu",
+        "Y5__aEZl3Pbxp7r90HKpV"
+      ]
+    },
+    {
+      "id": "column-doing",
+      "title": "Doing",
+      "tasksIds": []
+    },
+    {
+      "id": "column-done",
+      "title": "Done",
+      "tasksIds": []
+    }
+  ]
+}
