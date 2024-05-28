@@ -24,7 +24,7 @@
     "jdZxwLymOo7w2eZeNpvsN": {
       "id": "jdZxwLymOo7w2eZeNpvsN",
       "description": "Run `yarn plop`, and follow prompts to generate server or client components for your library",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "RX4J5v4y5IOe_ucf8pMRT": {
       "id": "RX4J5v4y5IOe_ucf8pMRT",
@@ -34,67 +34,67 @@
     "EdPbrbJLllUHfZmCS80f7": {
       "id": "EdPbrbJLllUHfZmCS80f7",
       "description": "Set up `CodeCov`\n  - Visit Codecov and set up your repo\n  - Create [repository secret] for `CODECOV_TOKEN`",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "MLLUsAhCKaKxvEXFY0HSq": {
       "id": "MLLUsAhCKaKxvEXFY0HSq",
       "description": "Set up `CodeClimate`\n  - Visit CodeClimate and set up your repo\n  - Create [repository secret] for `CC_TEST_REPORTER_ID`\n  - Add `*.test.*` to ignore patterns on the website\n  - Update Code Climate badge",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "gMYfaAh2RABMP8uZRQgNx": {
       "id": "gMYfaAh2RABMP8uZRQgNx",
       "description": "Add `NPM_AUTH_TOKEN` to repository secrets to automate package publishing\n  - Log in to your [`npm` account](https://www.npmjs.com/login) and create an automation token\n  - Create a new repository secret `NPM_AUTH_TOKEN`",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "_BfuX7quWBANpDK1bI7YM": {
       "id": "_BfuX7quWBANpDK1bI7YM",
       "description": "Update description in `lib/package.json`",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "dC7QDBLH8BmHUfaYmIt81": {
       "id": "dC7QDBLH8BmHUfaYmIt81",
       "description": "(Optional) Add Repo Stats by visiting and setting up [repobeats](https://repobeats.axiom.co/)",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "P_NrSJQ8m91Odgz8E1fS6": {
       "id": "P_NrSJQ8m91Odgz8E1fS6",
       "description": "Create your library and update examples",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "1dRWJhy45E1Rq5wZAmPHt": {
       "id": "1dRWJhy45E1Rq5wZAmPHt",
       "description": "Update README as required",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "5vS1JNXoMhDl5IBljwh2v": {
       "id": "5vS1JNXoMhDl5IBljwh2v",
       "description": "Set up GitHub pages to deploy docs\n  - Go to [repo settings] -> pages (On the left panel); Select deploy from a branch; Then Select `main` and `/docs`",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "55DAZwduwTvlaxaJC8hlX": {
       "id": "55DAZwduwTvlaxaJC8hlX",
       "description": "(Optional) Set up [Deepsource](https://app.deepsource.com/login) for static code analysis",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "FDFqCQvLm2mUlnTJ3Gna5": {
       "id": "FDFqCQvLm2mUlnTJ3Gna5",
       "description": "Push your changes/Create PR and see your library being automatically tested and published",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "O1qAByMoxhHOR-a_guL91": {
       "id": "O1qAByMoxhHOR-a_guL91",
       "description": "Optionally deploy your examples to Vercel.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "0499BqWDwJ5cxqtC9Nr82": {
       "id": "0499BqWDwJ5cxqtC9Nr82",
       "description": "Feel free to star this template, contribute, and/or sponsor the [`terborepo-template`](https://github.com/react18-tools/turborepo-template) project or my [other open-source work](https://github.com/sponsors/mayank1513)",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "IjuAtNquJ4-Ut874rHKIW": {
       "id": "IjuAtNquJ4-Ut874rHKIW",
       "description": "You can also fork the [`terborepo-template`](https://github.com/react18-tools/turborepo-template/fork) and add your package to `scripts/featured.json`\n  - If approved, your package will be automatically added to FEATURED.md and also published on the home page of this repo.",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "_JiH9RZLmUF5nxD7lBC5B": {
       "id": "_JiH9RZLmUF5nxD7lBC5B",
@@ -116,22 +116,7 @@
     {
       "id": "column-todo",
       "title": "To do",
-      "tasksIds": [
-        "jdZxwLymOo7w2eZeNpvsN",
-        "EdPbrbJLllUHfZmCS80f7",
-        "MLLUsAhCKaKxvEXFY0HSq",
-        "gMYfaAh2RABMP8uZRQgNx",
-        "_BfuX7quWBANpDK1bI7YM",
-        "dC7QDBLH8BmHUfaYmIt81",
-        "P_NrSJQ8m91Odgz8E1fS6",
-        "1dRWJhy45E1Rq5wZAmPHt",
-        "5vS1JNXoMhDl5IBljwh2v",
-        "55DAZwduwTvlaxaJC8hlX",
-        "FDFqCQvLm2mUlnTJ3Gna5",
-        "O1qAByMoxhHOR-a_guL91",
-        "0499BqWDwJ5cxqtC9Nr82",
-        "IjuAtNquJ4-Ut874rHKIW"
-      ]
+      "tasksIds": []
     },
     {
       "id": "column-doing",
@@ -142,6 +127,20 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "1dRWJhy45E1Rq5wZAmPHt",
+        "IjuAtNquJ4-Ut874rHKIW",
+        "0499BqWDwJ5cxqtC9Nr82",
+        "O1qAByMoxhHOR-a_guL91",
+        "55DAZwduwTvlaxaJC8hlX",
+        "FDFqCQvLm2mUlnTJ3Gna5",
+        "5vS1JNXoMhDl5IBljwh2v",
+        "P_NrSJQ8m91Odgz8E1fS6",
+        "dC7QDBLH8BmHUfaYmIt81",
+        "_BfuX7quWBANpDK1bI7YM",
+        "gMYfaAh2RABMP8uZRQgNx",
+        "MLLUsAhCKaKxvEXFY0HSq",
+        "EdPbrbJLllUHfZmCS80f7",
+        "jdZxwLymOo7w2eZeNpvsN",
         "jcpymbi71e702p7n6fwvZ",
         "RX4J5v4y5IOe_ucf8pMRT",
         "gbzyhx0FwFfzRoE-iqVeu",
