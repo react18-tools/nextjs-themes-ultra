@@ -1,8 +1,8 @@
 import useRGS from "r18gs";
 import type { SetStateAction } from "r18gs";
-import * as React from "react";
 import type { ColorSchemePreference, ThemeState } from "../../constants";
 import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../../constants";
+import { useEffect } from "react";
 
 export interface ThemeSwitcherProps {
   /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
@@ -16,7 +16,7 @@ export interface ThemeSwitcherProps {
 }
 
 const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
-  React.useEffect(() => {
+  useEffect(() => {
     // set event listener for media
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateSystemColorScheme = () => {
@@ -42,7 +42,7 @@ const parseState = (str?: string | null) => {
 let tInit = 0;
 
 const useLoadSyncedState = ({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) => {
-  React.useEffect(() => {
+  useEffect(() => {
     if (dontSync) return;
     tInit = Date.now();
     const key = targetId ?? DEFAULT_ID;
@@ -96,7 +96,7 @@ const applyClasses = ({ targets, theme, resolvedColorScheme, styles }: ApplyClas
     t?.classList.remove(cls[0]); // dark
     t?.classList.remove(cls[1]); // light
     t?.classList.forEach(c => {
-      if (/(?:^|_)th-/.exec(c)) t.classList.remove(c);
+      if (/(?:^|_)th-/.test(c)) t.classList.remove(c);
     });
     t?.classList.add(cls[2]); // theme
     t?.classList.add(cls[3]); // resolvedColorScheme
@@ -149,7 +149,7 @@ export const ThemeSwitcher = ({
   useLoadSyncedState({ dontSync, targetId, setThemeState });
 
   /** update DOM and storage */
-  React.useEffect(() => {
+  useEffect(() => {
     const restoreTransitions = modifyTransition(themeTransition, targetId);
     updateDOM({ targetId, themeState, dontSync, styles });
     if (!dontSync && tInit < Date.now() - 300) {

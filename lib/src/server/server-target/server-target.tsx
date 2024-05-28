@@ -1,4 +1,3 @@
-import * as React from "react";
 import { cookies } from "next/headers";
 import { DEFAULT_ID } from "../../constants";
 

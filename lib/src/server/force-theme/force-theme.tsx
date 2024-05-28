@@ -1,4 +1,3 @@
-import * as React from "react";
 import type { HTMLProps } from "react";
 
 interface ForceThemeProps extends HTMLProps<HTMLElement> {
