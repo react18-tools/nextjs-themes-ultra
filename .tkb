@@ -19,7 +19,7 @@
     "jcpymbi71e702p7n6fwvZ": {
       "id": "jcpymbi71e702p7n6fwvZ",
       "description": "Install dependencies using `pnpm`\n  - Run `pnpm i` to install dependencies; the `rebrand` script will automatically rebrand the repo, adjust workflows, and create a commit",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "jdZxwLymOo7w2eZeNpvsN": {
       "id": "jdZxwLymOo7w2eZeNpvsN",
@@ -29,7 +29,7 @@
     "RX4J5v4y5IOe_ucf8pMRT": {
       "id": "RX4J5v4y5IOe_ucf8pMRT",
       "description": "🌟 Enable [private vulnerability reporting]",
-      "columnId": "column-todo"
+      "columnId": "column-done"
     },
     "EdPbrbJLllUHfZmCS80f7": {
       "id": "EdPbrbJLllUHfZmCS80f7",
@@ -117,9 +117,7 @@
       "id": "column-todo",
       "title": "To do",
       "tasksIds": [
-        "jcpymbi71e702p7n6fwvZ",
         "jdZxwLymOo7w2eZeNpvsN",
-        "RX4J5v4y5IOe_ucf8pMRT",
         "EdPbrbJLllUHfZmCS80f7",
         "MLLUsAhCKaKxvEXFY0HSq",
         "gMYfaAh2RABMP8uZRQgNx",
@@ -144,6 +142,8 @@
       "id": "column-done",
       "title": "Done",
       "tasksIds": [
+        "jcpymbi71e702p7n6fwvZ",
+        "RX4J5v4y5IOe_ucf8pMRT",
         "gbzyhx0FwFfzRoE-iqVeu",
         "Y5__aEZl3Pbxp7r90HKpV",
         "G-1H47JpSI69kav1qZ-kp",
