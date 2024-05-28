@@ -35,14 +35,16 @@ export function ColorSwitch({ targetId, skipSystem, size, ...props }: ColorSwitc
   } = useTheme(targetId);
   const toggleColorScheme = () => {
     switch (csp) {
-      case "system":
-        setColorSchemePreference("dark");
-        break;
       case "dark":
         setColorSchemePreference("light");
         break;
       case "light":
         setColorSchemePreference(skipSystem ? "dark" : "system");
+        break;
+      case "system":
+      default:
+        setColorSchemePreference("dark");
+        break;
     }
   };
   return (
