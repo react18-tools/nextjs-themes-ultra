@@ -1,29 +1,30 @@
 "use client";
 
-import { ColorSwitch, useTheme } from "nextjs-themes";
+import { ColorSwitch } from "nthul";
+import { useTheme } from "nthul/dist/hooks";
 import styles from "./header.module.scss";
 import { useCallback } from "react";
 
 /** This is a wrapper around `nextjs-themes's ColorSwitch component to improve mobile view. */
 export default function ThemeSwitch() {
-  const { colorSchemePref, setColorSchemePref } = useTheme();
+  const { colorSchemePreference, setColorSchemePreference } = useTheme();
   const toggle = useCallback(() => {
-    switch (colorSchemePref) {
+    switch (colorSchemePreference) {
       case "dark":
-        setColorSchemePref("light");
+        setColorSchemePreference("light");
         break;
       case "light":
-        setColorSchemePref("system");
+        setColorSchemePreference("system");
         break;
       case "system":
       default:
-        setColorSchemePref("dark");
+        setColorSchemePreference("dark");
     }
-  }, [colorSchemePref]);
+  }, [colorSchemePreference]);
   return (
     <button className={styles.themeswitch} onClick={toggle}>
       <ColorSwitch />
-      <span className="mb">{colorSchemePref}</span>
+      <span className="mb">{colorSchemePreference}</span>
     </button>
   );
 }
