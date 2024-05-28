@@ -7,28 +7,30 @@ on:
     - cron: "5 */8 * * *"
 jobs:
   test:
+    if: github.run_number != 1
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Setup Git
+        run: |
+          git config --global user.name "mayank1513"
+          git config --global user.email "mayank.srmu@gmail.com"
       - run: npm i -g pnpm && pnpm i
         name: Install dependencies
       - name: Run unit tests
         run: pnpm test
       - name: Upload coverage reports to Codecov
         continue-on-error: true
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
-          directory: ./lib/nthul
+          directory: ./lib
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: nthul
       - uses: paambaati/codeclimate-action@v5.0.0
         continue-on-error: true
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageLocations: ./lib/nthul/coverage/*.xml:clover
+          coverageLocations: ./lib/coverage/*.xml:clover
