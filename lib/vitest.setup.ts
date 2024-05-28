@@ -1,5 +1,12 @@
 import { vi } from "vitest";
 
+declare global {
+  interface Window {
+    media: "dark" | "light";
+  }
+  var cookies: Record<string, { value: string }>; // eslint-disable-line no-var -- let is not supported in defining global due to block scope
+  var path: string; // eslint-disable-line no-var -- let is not supported in defining global due to block scope
+}
 // mock matchMedia
 Object.defineProperty(window, "matchMedia", {
   writable: true,
@@ -13,13 +20,6 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-declare global {
-  interface Window {
-    media: "dark" | "light";
-  }
-  var cookies: Record<string, { value: string }>; // eslint-disable-line no-var -- let is not supported in defining global due to block scope
-  var path: string; // eslint-disable-line no-var -- let is not supported in defining global due to block scope
-}
 Object.defineProperty(window, "media", {
   writable: true,
   value: "dark",
