@@ -8,9 +8,7 @@ on:
 
 jobs:
   publish:
-    # Don't run just after creating repo from template
-    # Also avoid running after merging set-up PR
-    if: github.run_number > 2 && github.event.repository.owner.login == 'react18-tools'
+    if: github.event.repository.owner.login == 'react18-tools'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -35,7 +33,7 @@ jobs:
       - name: Test
         run: pnpm test
       - name: Copy Readme file
-        run: cp ./README.md ./lib # will be uncommented while rebranding
+        run: cp ./README.md ./lib
       - name: Apply changesets, publish and create release, branches and tags
         run: node ./scripts/publish.js
         env:
