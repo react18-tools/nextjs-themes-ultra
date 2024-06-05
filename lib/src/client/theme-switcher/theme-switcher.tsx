@@ -43,12 +43,13 @@ const useLoadSyncedState = ( setThemeState: SetStateAction<ThemeState>, dontSync
     tInit = Date.now();
     const key = targetId ?? DEFAULT_ID;
     setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
-    const storageListener = (e: StorageEvent) => {
+    const storageListener = (e: StorageEvent):void => {
       if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
-    window.addEventListener("storage", storageListener);
+    addEventListener("storage", storageListener);
+    // skipcq: JS-0045
     return () => {
-      window.removeEventListener("storage", storageListener);
+      removeEventListener("storage", storageListener);
     };
   }, [dontSync, setThemeState, targetId]);
 };
@@ -70,7 +71,7 @@ const modifyTransition = (themeTransition = "none", targetId?: string) => {
 
   return () => {
     // Force restyle
-    (() => window.getComputedStyle(documentMinify.body))();
+    (() => getComputedStyle(documentMinify.body))();
     // Wait for next tick before removing
     setTimeout(() => {
       documentMinify.head.removeChild(css);
