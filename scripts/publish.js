@@ -1,5 +1,5 @@
 /** It is assumed that this is called only from the default branch. */
-const { execSync, exec } = require("child_process");
+const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
@@ -55,7 +55,11 @@ const pkgPath = path.join(__dirname, "../lib/package.json");
 const publishCanonical = canonical => {
   pkgJSON.name = canonical;
   fs.writeFileSync(pkgPath, JSON.stringify(pkgJSON, null, 2));
-  exec("cd lib && pnpm build && npm publish --provenance --access public");
+  try {
+    execSync("cd lib && pnpm build && npm publish --provenance --access public");
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 canonicals.forEach(publishCanonical);
@@ -70,7 +74,7 @@ liteCanonicals.forEach(publishCanonical);
 const toDeprecate = ["@mayank1513/nthul", "@mayank1513/nthul-lite"];
 
 toDeprecate.forEach(pkg =>
-  exec(
+  execSync(
     `npm deprecate ${pkg} "Please use <https://www.npmjs.com/package/${pkg.slice("/")[1]}> instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist.`,
   ),
 );

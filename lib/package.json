@@ -8,7 +8,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "repository": "github:react18-tools/nextjs-themes-ultra",
+  "repository": "github:react18-tools/nextjs-themes-ultra.git",
   "bugs": "https://github.com/react18-tools/nextjs-themes-ultra/issues",
   "homepage": "https://github.com/react18-tools/nextjs-themes-ultra/#readme",
   "sideEffects": false,
