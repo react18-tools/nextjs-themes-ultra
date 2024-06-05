@@ -1,5 +1,11 @@
 # nthul
 
+## 1.0.1
+
+### Patch Changes
+
+- Refactor to minify
+
 ## 1.0.0
 
 ### Major Changes
