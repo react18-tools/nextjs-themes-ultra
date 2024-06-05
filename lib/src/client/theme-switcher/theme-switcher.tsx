@@ -3,7 +3,7 @@ import type { SetStateAction } from "r18gs";
 import type { ColorSchemePreference, ThemeState } from "../../constants";
 import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../../constants";
 import { useEffect } from "react";
-
+const useEffectMinify = useEffect;
 export interface ThemeSwitcherProps {
   /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
   targetId?: string;
@@ -17,11 +17,11 @@ export interface ThemeSwitcherProps {
 
 /** Add media query listener */
 const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
-  useEffect(() => {
+  useEffectMinify(() => {
     // set event listener for media
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateSystemColorScheme = () => {
-      setThemeState(state => ({ ...state, systemColorScheme: media.matches ? "dark" : "light" }));
+      setThemeState(state => ({ ...state, s: media.matches ? "dark" : "light" }));
     };
     updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
@@ -31,10 +31,6 @@ const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
   }, [setThemeState]);
 };
 
-export interface LoadSyncedStateProps extends ThemeSwitcherProps {
-  setThemeState: SetStateAction<ThemeState>;
-}
-
 const parseState = (str?: string | null) => {
   const parts = (str ?? ",system").split(",") as [string, ColorSchemePreference];
   return { theme: parts[0], colorSchemePreference: parts[1] };
@@ -42,8 +38,8 @@ const parseState = (str?: string | null) => {
 
 let tInit = 0;
 
-const useLoadSyncedState = ({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) => {
-  useEffect(() => {
+const useLoadSyncedState = ( setThemeState: SetStateAction<ThemeState>, dontSync?:boolean, targetId?:string  ) => {
+  useEffectMinify(() => {
     if (dontSync) return;
     tInit = Date.now();
     const key = targetId ?? DEFAULT_ID;
@@ -82,14 +78,8 @@ const modifyTransition = (themeTransition = "none", targetId?: string) => {
   };
 };
 
-export interface ApplyClassesProps {
-  targets: (HTMLElement | null)[];
-  theme: string;
-  resolvedColorScheme: "light" | "dark";
-  styles?: Record<string, string>;
-}
-
-const applyClasses = ({ targets, theme, resolvedColorScheme, styles }: ApplyClassesProps) => {
+/** Apply classes to the targets */
+const applyClasses = ( targets: (HTMLElement | null)[], theme: string, resolvedColorScheme: "light" | "dark", styles?: Record<string, string>) => {
   let cls = ["dark", "light", `th-${theme}`, resolvedColorScheme];
   if (styles) cls = cls.map(c => styles[c] ?? c);
 
@@ -104,15 +94,9 @@ const applyClasses = ({ targets, theme, resolvedColorScheme, styles }: ApplyClas
   });
 };
 
-export interface UpdateDOMProps {
-  targetId?: string;
-  themeState: ThemeState;
-  dontSync?: boolean;
-  styles?: Record<string, string>;
-}
-
-const updateDOM = ({ targetId, themeState, dontSync, styles }: UpdateDOMProps) => {
-  const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
+/** Update DOM */
+const updateDOM = (themeState: ThemeState, targetId?: string, dontSync?: boolean, styles?:Record<string, string>) => {
+  const { t: theme, c: csp, s: scs } = themeState;
   const resolvedColorScheme = csp === "system" ? scs : csp;
   const key = targetId ?? DEFAULT_ID;
   // update DOM
@@ -123,7 +107,7 @@ const updateDOM = ({ targetId, themeState, dontSync, styles }: UpdateDOMProps) =
   /** do not update documentElement for local targets */
   const targets = targetId ? [target] : [target, document.documentElement];
 
-  applyClasses({ targets, styles, resolvedColorScheme, theme });
+  applyClasses( targets,theme, resolvedColorScheme, styles);
 
   if (shoulCreateCookie)
     document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
@@ -147,15 +131,15 @@ export const ThemeSwitcher = ({
 
   useMediaQuery(setThemeState);
 
-  useLoadSyncedState({ dontSync, targetId, setThemeState });
+  useLoadSyncedState(setThemeState , dontSync, targetId);
 
   /** update DOM and storage */
-  useEffect(() => {
+  useEffectMinify(() => {
     const restoreTransitions = modifyTransition(themeTransition, targetId);
-    updateDOM({ targetId, themeState, dontSync, styles });
+    updateDOM(themeState, targetId,  dontSync, styles);
     if (!dontSync && tInit < Date.now() - 300) {
       // save to localStorage
-      const { theme, colorSchemePreference } = themeState;
+      const { t: theme, c: colorSchemePreference } = themeState;
       const stateToSave = [theme, colorSchemePreference].join(",");
       const key = targetId ?? DEFAULT_ID;
       localStorage.setItem(key, stateToSave);
