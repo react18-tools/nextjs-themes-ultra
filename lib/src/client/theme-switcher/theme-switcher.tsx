@@ -30,9 +30,9 @@ const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
   }, [setThemeState]);
 };
 
-const parseState = (str?: string | null) => {
+const parseState = (str?: string | null): Partial<ThemeState> => {
   const parts = (str ?? ",system").split(",") as [string, ColorSchemePreference];
-  return { theme: parts[0], colorSchemePreference: parts[1] };
+  return { t: parts[0], c: parts[1] };
 };
 
 let tInit = 0;
