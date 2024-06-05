@@ -27,7 +27,7 @@ interface ColorSwitchProps extends HTMLProps<HTMLDivElement> {
  *
  * @source - Source code
  */
-export function ColorSwitch({ targetId, skipSystem, size, ...props }: ColorSwitchProps) {
+export const ColorSwitch = ({ targetId, skipSystem, size, ...props }: ColorSwitchProps) => {
   const {
     setColorSchemePreference,
     resolvedColorScheme: rcs,

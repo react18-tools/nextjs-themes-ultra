@@ -1,16 +1,24 @@
+import useRGS from "r18gs";
+
 /** shared constants -- keep in separate files for better tree-shaking and dependency injection */
 export const DEFAULT_ID = "nthul";
 
 export type ColorSchemePreference = "system" | "dark" | "light";
 
 export interface ThemeState {
-  colorSchemePreference: ColorSchemePreference;
-  systemColorScheme: "dark" | "light";
-  theme: string;
+  /** ColorSchemePreference */
+  c: ColorSchemePreference;
+  /** SystemColorScheme */
+  s: "dark" | "light";
+  /** Theme */
+  t: string;
 }
 
-export const DEFAULT_THEME_STATE = {
-  colorSchemePreference: "system" as ColorSchemePreference,
-  systemColorScheme: "light" as "light" | "dark",
-  theme: "",
+const DEFAULT_THEME_STATE:ThemeState = {
+  c: "system" as ColorSchemePreference,
+  s: "light",
+  t: "",
 };
+
+/** To avoid multiple r18gs imports */
+export const useRGSMinify = (targetId?:string) => useRGS<ThemeState>(targetId??DEFAULT_ID, DEFAULT_THEME_STATE);

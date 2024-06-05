@@ -1,6 +1,5 @@
-import useRGS from "r18gs";
-import type { ColorSchemePreference, ThemeState } from "../constants";
-import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../constants";
+import type { ColorSchemePreference } from "../constants";
+import { useRGSMinify } from "../constants";
 
 export interface UseTheme {
   theme: string;
@@ -17,16 +16,18 @@ export interface UseTheme {
  * @returns themeState and setter fucntions
  */
 export const useTheme = (targetId?: string): UseTheme => {
-  const [themeState, setState] = useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
-  const { colorSchemePreference: csp, systemColorScheme: scs } = themeState;
+  const [themeState, setState] = useRGSMinify(targetId);
+  const { c: csp, s: scs, t } = themeState;
   return {
-    ...themeState,
+    theme: t,
+    colorSchemePreference: csp,
+    systemColorScheme: scs,
     resolvedColorScheme: csp === "system" ? scs : csp,
     setColorSchemePreference: (colorSchemePreference: ColorSchemePreference) => {
-      setState({ ...themeState, colorSchemePreference });
+      setState({ ...themeState, c: colorSchemePreference });
     },
     setTheme: (theme: string) => {
-      setState({ ...themeState, theme });
+      setState({ ...themeState, t: theme });
     },
   };
 };

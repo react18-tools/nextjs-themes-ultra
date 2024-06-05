@@ -1,9 +1,8 @@
-import useRGS from "r18gs";
 import type { SetStateAction } from "r18gs";
 import type { ColorSchemePreference, ThemeState } from "../../constants";
-import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../../constants";
+import { DEFAULT_ID,  useRGSMinify } from "../../constants";
 import { useEffect } from "react";
-
+const useEffectMinify = useEffect;
 export interface ThemeSwitcherProps {
   /** id of target element to apply classes to. This is useful when you want to apply theme only to specific container. */
   targetId?: string;
@@ -17,11 +16,11 @@ export interface ThemeSwitcherProps {
 
 /** Add media query listener */
 const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
-  useEffect(() => {
+  useEffectMinify(() => {
     // set event listener for media
     const media = matchMedia("(prefers-color-scheme: dark)");
     const updateSystemColorScheme = () => {
-      setThemeState(state => ({ ...state, systemColorScheme: media.matches ? "dark" : "light" }));
+      setThemeState(state => ({ ...state, s: media.matches ? "dark" : "light" }));
     };
     updateSystemColorScheme();
     media.addEventListener("change", updateSystemColorScheme);
@@ -31,65 +30,57 @@ const useMediaQuery = (setThemeState: SetStateAction<ThemeState>) => {
   }, [setThemeState]);
 };
 
-export interface LoadSyncedStateProps extends ThemeSwitcherProps {
-  setThemeState: SetStateAction<ThemeState>;
-}
-
-const parseState = (str?: string | null) => {
+const parseState = (str?: string | null): Partial<ThemeState> => {
   const parts = (str ?? ",system").split(",") as [string, ColorSchemePreference];
-  return { theme: parts[0], colorSchemePreference: parts[1] };
+  return { t: parts[0], c: parts[1] };
 };
 
 let tInit = 0;
 
-const useLoadSyncedState = ({ dontSync, targetId, setThemeState }: LoadSyncedStateProps) => {
-  useEffect(() => {
+const useLoadSyncedState = ( setThemeState: SetStateAction<ThemeState>, dontSync?:boolean, targetId?:string  ) => {
+  useEffectMinify(() => {
     if (dontSync) return;
     tInit = Date.now();
     const key = targetId ?? DEFAULT_ID;
     setThemeState(state => ({ ...state, ...parseState(localStorage.getItem(key)) }));
-    const storageListener = (e: StorageEvent) => {
+    const storageListener = (e: StorageEvent):void => {
       if (e.key === key) setThemeState(state => ({ ...state, ...parseState(e.newValue) }));
     };
-    window.addEventListener("storage", storageListener);
+    addEventListener("storage", storageListener);
+    // skipcq: JS-0045
     return () => {
-      window.removeEventListener("storage", storageListener);
+      removeEventListener("storage", storageListener);
     };
   }, [dontSync, setThemeState, targetId]);
 };
 
 const modifyTransition = (themeTransition = "none", targetId?: string) => {
-  const css = document.createElement("style");
+  const documentMinify = document;
+  const css = documentMinify.createElement("style");
   /** split by ';' to prevent CSS injection */
   const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
   const targetSelector = targetId
     ? `#${targetId},#${targetId} *,#${targetId} ~ *,#${targetId} ~ * *`
     : "*";
   css.appendChild(
-    document.createTextNode(
+    documentMinify.createTextNode(
       `${targetSelector}{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`,
     ),
   );
-  document.head.appendChild(css);
+  documentMinify.head.appendChild(css);
 
   return () => {
     // Force restyle
-    (() => window.getComputedStyle(document.body))();
+    (() => getComputedStyle(documentMinify.body))();
     // Wait for next tick before removing
     setTimeout(() => {
-      document.head.removeChild(css);
+      documentMinify.head.removeChild(css);
     }, 1);
   };
 };
 
-export interface ApplyClassesProps {
-  targets: (HTMLElement | null)[];
-  theme: string;
-  resolvedColorScheme: "light" | "dark";
-  styles?: Record<string, string>;
-}
-
-const applyClasses = ({ targets, theme, resolvedColorScheme, styles }: ApplyClassesProps) => {
+/** Apply classes to the targets */
+const applyClasses = ( targets: (HTMLElement | null)[], theme: string, resolvedColorScheme: "light" | "dark", styles?: Record<string, string>) => {
   let cls = ["dark", "light", `th-${theme}`, resolvedColorScheme];
   if (styles) cls = cls.map(c => styles[c] ?? c);
 
@@ -104,29 +95,24 @@ const applyClasses = ({ targets, theme, resolvedColorScheme, styles }: ApplyClas
   });
 };
 
-export interface UpdateDOMProps {
-  targetId?: string;
-  themeState: ThemeState;
-  dontSync?: boolean;
-  styles?: Record<string, string>;
-}
-
-const updateDOM = ({ targetId, themeState, dontSync, styles }: UpdateDOMProps) => {
-  const { theme, colorSchemePreference: csp, systemColorScheme: scs } = themeState;
+/** Update DOM */
+const updateDOM = (themeState: ThemeState, targetId?: string, dontSync?: boolean, styles?:Record<string, string>) => {
+  const { t: theme, c: csp, s: scs } = themeState;
   const resolvedColorScheme = csp === "system" ? scs : csp;
   const key = targetId ?? DEFAULT_ID;
   // update DOM
   let shoulCreateCookie = false;
-  const target = document.getElementById(key);
+  const documentMinify = document;
+  const target = documentMinify.getElementById(key);
   shoulCreateCookie = !dontSync && target?.getAttribute("data-nth") === "next";
 
   /** do not update documentElement for local targets */
-  const targets = targetId ? [target] : [target, document.documentElement];
+  const targets = targetId ? [target] : [target, documentMinify.documentElement];
 
-  applyClasses({ targets, styles, resolvedColorScheme, theme });
+  applyClasses( targets,theme, resolvedColorScheme, styles);
 
   if (shoulCreateCookie)
-    document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
+    documentMinify.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
 };
 
 /**
@@ -140,22 +126,19 @@ export const ThemeSwitcher = ({
   styles,
 }: ThemeSwitcherProps) => {
   if (targetId === "") throw new Error("id can not be an empty string");
-  const [themeState, setThemeState] = useRGS<ThemeState>(
-    targetId ?? DEFAULT_ID,
-    DEFAULT_THEME_STATE,
-  );
+  const [themeState, setThemeState] = useRGSMinify(targetId);
 
   useMediaQuery(setThemeState);
 
-  useLoadSyncedState({ dontSync, targetId, setThemeState });
+  useLoadSyncedState(setThemeState , dontSync, targetId);
 
   /** update DOM and storage */
-  useEffect(() => {
+  useEffectMinify(() => {
     const restoreTransitions = modifyTransition(themeTransition, targetId);
-    updateDOM({ targetId, themeState, dontSync, styles });
+    updateDOM(themeState, targetId,  dontSync, styles);
     if (!dontSync && tInit < Date.now() - 300) {
       // save to localStorage
-      const { theme, colorSchemePreference } = themeState;
+      const { t: theme, c: colorSchemePreference } = themeState;
       const stateToSave = [theme, colorSchemePreference].join(",");
       const key = targetId ?? DEFAULT_ID;
       localStorage.setItem(key, stateToSave);

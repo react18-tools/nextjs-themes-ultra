@@ -1,5 +1,7 @@
 /** It is assumed that this is called only from the default branch. */
-const { execSync } = require("child_process");
+const { execSync, exec } = require("child_process");
+const fs = require("fs");
+const path = require("path");
 
 // Apply changesets if any -- e.g., coming from pre-release branches
 try {
@@ -16,7 +18,8 @@ try {
   // no changesets to be applied
 }
 
-const { version: VERSION, name } = require("../lib/package.json");
+const packageJSON = require("../lib/package.json");
+const { version: VERSION, name } = packageJSON;
 const LATEST_VERSION = execSync(`npm view ${name} version`).toString();
 
 console.log({ VERSION, LATEST_VERSION });
@@ -39,3 +42,27 @@ execSync("cd lib && pnpm build && npm publish --provenance --access public");
 execSync(
   `gh release create ${VERSION} --generate-notes --latest -n "$(sed '1,/^## /d;/^## /,$d' CHANGELOG.md)" --title "Release v${VERSION}"`,
 );
+
+// update canonicals
+
+const publishCanonical = (canonical) => {
+  packageJSON.name = canonical;
+  fs.writeFileSync(pkgPath, JSON.stringify(packageJSON, null, 2));
+  exec("cd lib && pnpm build && npm publish --provenance --access public");
+}
+
+const canonicals = [`@mayank1513/${name}`, 'nextjs-themes-ultra']
+const pkgPath = path.join(__dirname, "../lib/package.json");
+canonicals.forEach(publishCanonical);
+
+// lite version
+packageJson.peerDependencies.r18gs = "^1";
+delete packageJson.dependencies;
+
+const liteCanonicals = ['nthul-lite', '@mayank1513/nthul-lite', 'nextjs-themes-ultralite'];
+
+liteCanonicals.forEach(publishCanonical);
+
+const toDeprecate = ['@mayank1513/nthul', '@mayank1513/nthul-lite']
+
+toDeprecate.forEach(pkg => exec(`npm deprecate ${pkg} "Please use <https://www.npmjs.com/package/${pkg.slice('/')[1]}> instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist.`))
