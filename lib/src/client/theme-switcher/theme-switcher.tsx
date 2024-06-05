@@ -1,7 +1,6 @@
-import useRGS from "r18gs";
 import type { SetStateAction } from "r18gs";
 import type { ColorSchemePreference, ThemeState } from "../../constants";
-import { DEFAULT_ID, DEFAULT_THEME_STATE } from "../../constants";
+import { DEFAULT_ID,  useRGSMinify } from "../../constants";
 import { useEffect } from "react";
 const useEffectMinify = useEffect;
 export interface ThemeSwitcherProps {
@@ -124,10 +123,7 @@ export const ThemeSwitcher = ({
   styles,
 }: ThemeSwitcherProps) => {
   if (targetId === "") throw new Error("id can not be an empty string");
-  const [themeState, setThemeState] = useRGS<ThemeState>(
-    targetId ?? DEFAULT_ID,
-    DEFAULT_THEME_STATE,
-  );
+  const [themeState, setThemeState] = useRGSMinify(targetId);
 
   useMediaQuery(setThemeState);
 
