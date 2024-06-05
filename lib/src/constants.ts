@@ -14,11 +14,12 @@ export interface ThemeState {
   t: string;
 }
 
-const DEFAULT_THEME_STATE:ThemeState = {
+const DEFAULT_THEME_STATE: ThemeState = {
   c: "system" as ColorSchemePreference,
   s: "light",
   t: "",
 };
 
 /** To avoid multiple r18gs imports */
-export const useRGSMinify = (targetId?:string) => useRGS<ThemeState>(targetId??DEFAULT_ID, DEFAULT_THEME_STATE);
+export const useRGSMinify = (targetId?: string) =>
+  useRGS<ThemeState>(targetId ?? DEFAULT_ID, DEFAULT_THEME_STATE);
