@@ -58,4 +58,4 @@ export const ColorSwitch = ({ targetId, skipSystem, size, ...props }: ColorSwitc
       type="button"
     />
   );
-}
+};

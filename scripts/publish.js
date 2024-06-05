@@ -18,8 +18,8 @@ try {
   // no changesets to be applied
 }
 
-const packageJSON = require("../lib/package.json");
-const { version: VERSION, name } = packageJSON;
+const pkgJSON = require("../lib/package.json");
+const { version: VERSION, name } = pkgJSON;
 const LATEST_VERSION = execSync(`npm view ${name} version`).toString();
 
 console.log({ VERSION, LATEST_VERSION });
@@ -36,33 +36,41 @@ if (!isPatch) {
 }
 
 /** Create release */
-execSync("cd lib && pnpm build && npm publish --provenance --access public");
-
-/** Create GitHub release */
-execSync(
-  `gh release create ${VERSION} --generate-notes --latest -n "$(sed '1,/^## /d;/^## /,$d' CHANGELOG.md)" --title "Release v${VERSION}"`,
-);
+try {
+  execSync("cd lib && pnpm build && npm publish --provenance --access public");
+  /** Create GitHub release */
+  execSync(
+    `gh release create ${VERSION} --generate-notes --latest -n "$(sed '1,/^## /d;/^## /,$d' ./lib/CHANGELOG.md)" --title "Release v${VERSION}"`,
+  );
+} catch (e) {
+  console.error(e);
+}
 
 // update canonicals
 
-const publishCanonical = (canonical) => {
-  packageJSON.name = canonical;
-  fs.writeFileSync(pkgPath, JSON.stringify(packageJSON, null, 2));
-  exec("cd lib && pnpm build && npm publish --provenance --access public");
-}
-
-const canonicals = [`@mayank1513/${name}`, 'nextjs-themes-ultra']
+const canonicals = [`@mayank1513/${name}`, "nextjs-themes-ultra"];
 const pkgPath = path.join(__dirname, "../lib/package.json");
+
+/** Publish canonical packages */
+const publishCanonical = canonical => {
+  pkgJSON.name = canonical;
+  fs.writeFileSync(pkgPath, JSON.stringify(pkgJSON, null, 2));
+  exec("cd lib && pnpm build && npm publish --provenance --access public");
+};
+
 canonicals.forEach(publishCanonical);
 
-// lite version
-packageJson.peerDependencies.r18gs = "^1";
-delete packageJson.dependencies;
+pkgJSON.peerDependencies.r18gs = "^1";
+delete pkgJSON.dependencies;
 
-const liteCanonicals = ['nthul-lite', '@mayank1513/nthul-lite', 'nextjs-themes-ultralite'];
+const liteCanonicals = ["nthul-lite", "@mayank1513/nthul-lite", "nextjs-themes-ultralite"];
 
 liteCanonicals.forEach(publishCanonical);
 
-const toDeprecate = ['@mayank1513/nthul', '@mayank1513/nthul-lite']
+const toDeprecate = ["@mayank1513/nthul", "@mayank1513/nthul-lite"];
 
-toDeprecate.forEach(pkg => exec(`npm deprecate ${pkg} "Please use <https://www.npmjs.com/package/${pkg.slice('/')[1]}> instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist.`))
+toDeprecate.forEach(pkg =>
+  exec(
+    `npm deprecate ${pkg} "Please use <https://www.npmjs.com/package/${pkg.slice("/")[1]}> instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist.`,
+  ),
+);
