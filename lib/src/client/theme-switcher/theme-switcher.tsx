@@ -54,25 +54,26 @@ const useLoadSyncedState = ( setThemeState: SetStateAction<ThemeState>, dontSync
 };
 
 const modifyTransition = (themeTransition = "none", targetId?: string) => {
-  const css = document.createElement("style");
+  const documentMinify = document;
+  const css = documentMinify.createElement("style");
   /** split by ';' to prevent CSS injection */
   const transition = `transition: ${themeTransition.split(";")[0]} !important;`;
   const targetSelector = targetId
     ? `#${targetId},#${targetId} *,#${targetId} ~ *,#${targetId} ~ * *`
     : "*";
   css.appendChild(
-    document.createTextNode(
+    documentMinify.createTextNode(
       `${targetSelector}{-webkit-${transition}-moz-${transition}-o-${transition}-ms-${transition}${transition}}`,
     ),
   );
-  document.head.appendChild(css);
+  documentMinify.head.appendChild(css);
 
   return () => {
     // Force restyle
-    (() => window.getComputedStyle(document.body))();
+    (() => window.getComputedStyle(documentMinify.body))();
     // Wait for next tick before removing
     setTimeout(() => {
-      document.head.removeChild(css);
+      documentMinify.head.removeChild(css);
     }, 1);
   };
 };
@@ -100,16 +101,17 @@ const updateDOM = (themeState: ThemeState, targetId?: string, dontSync?: boolean
   const key = targetId ?? DEFAULT_ID;
   // update DOM
   let shoulCreateCookie = false;
-  const target = document.getElementById(key);
+  const documentMinify = document;
+  const target = documentMinify.getElementById(key);
   shoulCreateCookie = !dontSync && target?.getAttribute("data-nth") === "next";
 
   /** do not update documentElement for local targets */
-  const targets = targetId ? [target] : [target, document.documentElement];
+  const targets = targetId ? [target] : [target, documentMinify.documentElement];
 
   applyClasses( targets,theme, resolvedColorScheme, styles);
 
   if (shoulCreateCookie)
-    document.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
+    documentMinify.cookie = `${key}=${theme},${resolvedColorScheme}; max-age=31536000; SameSite=Strict;`;
 };
 
 /**
