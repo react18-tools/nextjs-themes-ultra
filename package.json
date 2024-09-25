@@ -30,7 +30,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@types/node": "^22.6.2"
+    "@types/node": "^22.7.0"
   },
   "name": "nextjs-themes-ultra"
 }
