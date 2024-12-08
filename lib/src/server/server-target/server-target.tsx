@@ -1,9 +1,10 @@
 import { cookies } from "next/headers";
 import { DEFAULT_ID } from "../../constants";
+import { ReactNode } from "react";
 
 interface ServerTargetProps {
   /** @defaultValue 'div' */
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof ReactNode;
   /** id of target element if you are applying theme only to specific container.
    * make sure you pass same targetId to corresponding `ThemeSwitcher`, `ColorSwitch` and `useTheme` hook as well.
    * @defaultValue undefined*/

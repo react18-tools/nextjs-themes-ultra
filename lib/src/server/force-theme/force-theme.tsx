@@ -1,8 +1,8 @@
-import type { HTMLProps } from "react";
+import type { HTMLProps, ReactNode } from "react";
 
 interface ForceThemeProps extends HTMLProps<HTMLElement> {
   /** @defaultValue 'div' */
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof ReactNode;
   children?: React.ReactNode;
   theme?: string;
   colorScheme?: "dark" | "light";
