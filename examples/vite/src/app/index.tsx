@@ -4,7 +4,7 @@ import { Bars1, Bars2, Dots1, Dots2 } from "react18-loaders/dist/server";
 import { LoaderContainer, useLoader } from "react18-loaders";
 
 /** Vite App */
-function App(): JSX.Element {
+function App() {
   const { setLoading } = useLoader();
   const handleClick = useCallback(() => setLoading(true), []);
   return (

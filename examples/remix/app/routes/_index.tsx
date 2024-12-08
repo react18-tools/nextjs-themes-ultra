@@ -1,5 +1,5 @@
 /** Remix App */
-export default function Index(): JSX.Element {
+export default function Index() {
   return (
     <div className="container">
       <h1 className="title">
