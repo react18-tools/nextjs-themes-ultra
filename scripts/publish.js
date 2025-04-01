@@ -70,11 +70,3 @@ delete pkgJSON.dependencies;
 const liteCanonicals = ["nthul-lite", "@mayank1513/nthul-lite", "nextjs-themes-ultralite"];
 
 liteCanonicals.forEach(publishCanonical);
-
-const toDeprecate = ["@mayank1513/nthul", "@mayank1513/nthul-lite"];
-
-toDeprecate.forEach(pkg =>
-  execSync(
-    `npm deprecate ${pkg} "Please use <https://www.npmjs.com/package/${pkg.slice("/")[1]}> instead. We initially created scoped packages to have similarities with the GitHub Public Repository (which requires packages to be scoped). We are no longer using GPR and thus deprecating all scoped packages for which corresponding un-scoped packages exist.`,
-  ),
-);
