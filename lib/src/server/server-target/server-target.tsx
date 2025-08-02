@@ -26,9 +26,9 @@ interface ServerTargetProps {
  * </html>
  * ```
  */
-export const ServerTarget = ({ tag, targetId, styles }: ServerTargetProps) => {
+export const ServerTarget = async ({ tag, targetId, styles }: ServerTargetProps) => {
   const key = targetId || DEFAULT_ID;
-  const val = cookies().get(key)?.value ?? ",light";
+  const val = (await cookies()).get(key)?.value ?? ",light";
   const [theme, cs] = val.split(",") as [string, string];
   /** to increase specificity for scoped targets. */
   const specificity = targetId ? "nth-scoped" : "";
