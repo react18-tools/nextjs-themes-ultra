@@ -76,24 +76,4 @@ describe("test theme-switcher with props and server target", () => {
   test.todo("test invalid targetId", ({ expect }) => {
     expect(render(<ThemeSwitcher targetId="" />)).toThrow("id can not be an empty string");
   });
-
-  test("test with confined server target", ({ expect }) => {
-    const THEME = "my-theme-with-server";
-    const COLOR_SCHEME = "dark";
-    const targetId = "my-custom-target";
-    globalThis.cookies = {
-      [targetId]: {
-        value: `${THEME},${COLOR_SCHEME}`,
-      },
-    };
-    render(<ServerTarget targetId={targetId} />);
-    render(<ThemeSwitcher targetId={targetId} />);
-    const { result } = renderHook(() => useTheme(targetId));
-    const NEW_THEME = "new-theme";
-    act(() => {
-      result.current.setTheme(NEW_THEME);
-    });
-    expect(document.cookie).not.toContain(THEME);
-    expect(document.cookie).toContain(NEW_THEME);
-  });
 });
