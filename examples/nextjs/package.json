@@ -17,7 +17,7 @@
     "nthul": "workspace:*",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react18-loaders": "^1.1.7"
+    "react18-loaders": "^1.1.11"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.5.3",
