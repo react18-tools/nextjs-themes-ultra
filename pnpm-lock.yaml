@@ -67,8 +67,8 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
       react18-loaders:
-        specifier: ^1.1.11
-        version: 1.1.11(@types/react@19.2.2)(react@19.2.0)
+        specifier: ^1.1.12
+        version: 1.1.12(@types/react@19.2.2)(react@19.2.0)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^16.0.1
@@ -107,8 +107,8 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
       react18-loaders:
-        specifier: ^1.1.11
-        version: 1.1.11(@types/react@19.2.2)(react@19.2.0)
+        specifier: ^1.1.12
+        version: 1.1.12(@types/react@19.2.2)(react@19.2.0)
       react18-themes:
         specifier: ^3.2.0
         version: 3.2.0(@types/react@19.2.2)(react@19.2.0)
@@ -237,8 +237,8 @@ importers:
         specifier: ^4.1.8
         version: 4.1.8(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react18-loaders:
-        specifier: ^1.1.11
-        version: 1.1.11(@types/react@19.2.2)(react@19.2.0)
+        specifier: ^1.1.12
+        version: 1.1.12(@types/react@19.2.2)(react@19.2.0)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -4420,8 +4420,8 @@ packages:
     resolution: {integrity: sha512-QgT5//D3jfjJb6Gsjxv0Slpj23ip+HtOpnNgnb2S5zU3CB26G/IDPGoy4RJB42wzFE46DRsstbW6tKHoKbhAxw==}
     engines: {node: '>=0.10.0'}
 
-  react18-loaders@1.1.11:
-    resolution: {integrity: sha512-3/ne0F0GYJ+OB52kxw8vLgTZqETSCgT9yfzRpqSoHFV5ABj59412njMh1VqhN+f6EPm4hJ9ZWPADr1eC1gnVjg==}
+  react18-loaders@1.1.12:
+    resolution: {integrity: sha512-YNtoEI/C85K+BkMiu3s8vczBSYaSpIGpguQxKHltHBXXe62JOkY5olE/vR9Bcw33u2MFKVO1pCk8rsfWqQPBnQ==}
     peerDependencies:
       '@types/react': '>=16.8'
       react: '>=16.8'
@@ -10452,7 +10452,7 @@ snapshots:
 
   react-refresh@0.18.0: {}
 
-  react18-loaders@1.1.11(@types/react@19.2.2)(react@19.2.0):
+  react18-loaders@1.1.12(@types/react@19.2.2)(react@19.2.0):
     dependencies:
       '@types/react': 19.2.2
       r18gs: 3.0.1(@types/react@19.2.2)(react@19.2.0)
