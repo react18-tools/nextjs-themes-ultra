@@ -35,10 +35,10 @@
     "esbuild-plugin-react18": "0.2.6",
     "esbuild-plugin-react18-css": "^0.0.4",
     "jsdom": "^27.2.0",
-    "next": "^16.0.1",
+    "next": "^16.0.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tsup": "^8.5.0",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.0.8"
