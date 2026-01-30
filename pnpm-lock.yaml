@@ -56,7 +56,7 @@ importers:
         version: link:../../packages/shared
       next:
         specifier: ^16.1.6
-        version: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
+        version: 16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       nthul:
         specifier: workspace:*
         version: link:../../lib
@@ -176,7 +176,7 @@ importers:
         version: 27.4.0
       next:
         specifier: ^16.1.6
-        version: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
+        version: 16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       react:
         specifier: ^19.2.4
         version: 19.2.4
@@ -211,8 +211,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       eslint-plugin-storybook:
-        specifier: ^10.2.1
-        version: 10.2.1(eslint@9.12.0)(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.8.1))(typescript@5.9.3)
+        specifier: ^10.2.3
+        version: 10.2.3(eslint@9.12.0)(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.8.1))(typescript@5.9.3)
 
   packages/config-typescript: {}
 
@@ -226,7 +226,7 @@ importers:
         version: link:../../scripts
       next:
         specifier: 10 - 14
-        version: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
+        version: 16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
       nthul:
         specifier: workspace:*
         version: link:../../lib
@@ -2893,11 +2893,11 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-storybook@10.2.1:
-    resolution: {integrity: sha512-5+V+dlzTuZfNKUD8hPbLvCVtggcWfI2lDGTpiq0AENrHeAgcztj17wwDva96lbg/sAG20uX71l8HQo3s/GmpHw==}
+  eslint-plugin-storybook@10.2.3:
+    resolution: {integrity: sha512-5wy+OKe6VexZecAedroKv+GR+agciZqK/Su7cdo6b1mICWaWwejU/XjjTLL9zr6wiEjCN/0mhYg7yz70DoaMQQ==}
     peerDependencies:
       eslint: '>=8'
-      storybook: ^10.2.1
+      storybook: ^10.2.3
 
   eslint-plugin-testing-library@6.5.0:
     resolution: {integrity: sha512-Ls5TUfLm5/snocMAOlofSOJxNN0aKqwTlco7CrNtMjkTdQlkpSMaeTCDHCuXfzrI97xcx2rSCNeKeJjtpkNC1w==}
@@ -3181,8 +3181,8 @@ packages:
     resolution: {integrity: sha512-w9UMqWwJxHNOvoNzSJ2oPF5wvYcvP7jUvYzhp67yEhTi17ZDBBC1z9pTdGuzjD+EFIqLSYRweZjqfiPzQ06Ebg==}
     engines: {node: '>= 0.4'}
 
-  get-tsconfig@4.13.0:
-    resolution: {integrity: sha512-1VKTZJCwBrvbd+Wn3AOgQP/2Av+TfTCOlE4AcRJE72W1ksZXbAx8PPBR9RzgTeSPzlPMHrbANMH3LbltH73wxQ==}
+  get-tsconfig@4.13.1:
+    resolution: {integrity: sha512-EoY1N2xCn44xU6750Sx7OjOIT59FkmstNc3X6y5xpz7D5cBtZRe/3pSlTkDJgqsOk3WwZPkWfonhhUJfttQo3w==}
 
   git-hooks-list@4.2.1:
     resolution: {integrity: sha512-WNvqJjOxxs/8ZP9+DWdwWJ7cDsd60NHf39XnD82pDVrKO5q7xfPqpkK6hwEAmBa/ZSEE4IOoR75EzbbIuwGlMw==}
@@ -6661,7 +6661,7 @@ snapshots:
       '@types/react': 19.2.10
       react: 19.2.4
     optionalDependencies:
-      next: 16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
+      next: 16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3)
 
   '@microsoft/tsdoc-config@0.16.2':
     dependencies:
@@ -8342,7 +8342,7 @@ snapshots:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.4.3
       eslint: 9.12.0
-      get-tsconfig: 4.13.0
+      get-tsconfig: 4.13.1
       is-bun-module: 2.0.0
       stable-hash: 0.0.5
       tinyglobby: 0.2.15
@@ -8501,7 +8501,7 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-storybook@10.2.1(eslint@9.12.0)(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.8.1))(typescript@5.9.3):
+  eslint-plugin-storybook@10.2.3(eslint@9.12.0)(storybook@9.0.0(@testing-library/dom@10.4.0)(prettier@3.8.1))(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/utils': 8.54.0(eslint@9.12.0)(typescript@5.9.3)
       eslint: 9.12.0
@@ -8864,7 +8864,7 @@ snapshots:
       es-errors: 1.3.0
       get-intrinsic: 1.3.0
 
-  get-tsconfig@4.13.0:
+  get-tsconfig@4.13.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
@@ -10229,7 +10229,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@16.1.6(@babel/core@7.28.6)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3):
+  next@16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.97.3):
     dependencies:
       '@next/env': 16.1.6
       '@swc/helpers': 0.5.15
@@ -10238,7 +10238,7 @@ snapshots:
       postcss: 8.4.31
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
-      styled-jsx: 5.1.6(@babel/core@7.28.6)(react@19.2.4)
+      styled-jsx: 5.1.6(react@19.2.4)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.1.6
       '@next/swc-darwin-x64': 16.1.6
@@ -11247,12 +11247,10 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  styled-jsx@5.1.6(@babel/core@7.28.6)(react@19.2.4):
+  styled-jsx@5.1.6(react@19.2.4):
     dependencies:
       client-only: 0.0.1
       react: 19.2.4
-    optionalDependencies:
-      '@babel/core': 7.28.6
 
   sucrase@3.35.1:
     dependencies:
